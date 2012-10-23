@@ -1,0 +1,48 @@
+.box {
+    width: 40%;
+    float: left;
+    padding: 10px;
+    color: #fff;
+    height: 49px;
+    text-align:center;
+    margin: 0px;
+    background: #f00;
+    border: 0px solid #4889a3;
+}
+.home {
+    width:20%;
+    text-align:left;
+}
+.login {
+    text-align:right;
+    width:20%;
+}
+.appname {
+    test-transform:uppercase;
+    font-size:40px;
+}
+.banner {
+    height: 60px;
+}
+
+table { 
+    padding:5px;
+}
+
+label {
+    float:left;
+    padding:10px;
+}
+#button {
+    margin: 0 auto;
+    padding: 10px;
+    background: #333;
+    width: 190px;
+    color: #fff;
+    height: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
