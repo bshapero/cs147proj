@@ -1,0 +1,22 @@
+table.home-table {
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+}
+table.home-table th {
+    height: 100px;
+    border-bottom: 1px solid black;
+}
+.table-cell-middle {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+table.home-table td {
+    height: 100px;
+    
+}
+
+a {
+    text-decoration: none;
+}		
