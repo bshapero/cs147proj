@@ -17,6 +17,12 @@ table.home-table td {
     
 }
 
+.center {
+width: 100%;
+text-align: center;
+}
+
 a {
     text-decoration: none;
 }		
+

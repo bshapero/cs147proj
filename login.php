@@ -29,6 +29,34 @@
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
+
+	<form action="submit.php" method="post" id="login">
+						
+		<h2><span>Login</span></h2>
+							
+		<p><label>E-mail</label>
+		<input type="text" id="username" name="username" />
+		</p>
+								
+		<p><label>Password</label>
+		<input type="password" id="password" name="password" /></p>
+								
+							
+		<input type="submit" value="Login" />
+							
+	</form>	
+
+
+	<form action="submit.php" method="post" id="logout">
+						
+		<h2><span>Logout</span></h2>					
+		<input type="submit" value="logout" />
+							
+	</form>	
+	<div class = "center"> or <div>
+	<button>Create New Profile</button>
+
+
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>

@@ -18,9 +18,9 @@ create table Bookmarks(user_id int, review_id);
 
 /* Populate the tables with our data */
 
-insert into Users values(1, 'jneighbs88@gmail.com', "jacob", null, null);
-insert into Users values(2, ' ryanr2013@gmail.com', "ryan", null, null);
-insert into Users values(3, 'mrwunderboy@gmail.com', "ben", null, null);
+insert into Users values(1, 'jneighbs88@gmail.com', "736b19f69aaca691fecd8400294cc383", null, null);
+insert into Users values(2, ' ryanr2013@gmail.com', "10c7ccc7a4f0aff03c915c485565b9da", null, null);
+insert into Users values(3, 'mrwunderboy@gmail.com', "7fe4771c008a22eb763df47d19e2c6aa", null, null);
 
 insert into Reviews values(1, 'Review numero uno', 'jneighbs88@gmail.com', 5, 0, 1, '2012-10-21 08:30:10');
 insert into Reviews values(2, 'Review numero dos', 'ryanr2013@gmail.com', 1, 0, 1, '2012-10-22 04:33:40');
