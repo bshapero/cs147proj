@@ -34,10 +34,11 @@
 						
 		<h2><span>Login</span></h2>
 							
+<<<<<<< HEAD
 		<p><label>E-mail</label>
+=======
 		<p><label>Username</label>
-
-
+>>>>>>> 3bf806623a3992c1c48cd062aacbdcbbfbbd008c
 		<input type="text" id="username" name="username" />
 		</p>
 								
@@ -49,17 +50,22 @@
 							
 	</form>	
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3bf806623a3992c1c48cd062aacbdcbbfbbd008c
 	<form action="submit.php" method="post" id="logout">
 						
 		<h2><span>Logout</span></h2>					
 		<input type="submit" value="logout" />
 							
 	</form>	
-
+<<<<<<< HEAD
 	<div class = "center"> or <div>
 	<button>Create New Profile</button>
 
+=======
+>>>>>>> 3bf806623a3992c1c48cd062aacbdcbbfbbd008c
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
