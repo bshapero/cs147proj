@@ -12,13 +12,15 @@
 
 	<link rel="stylesheet" href="style.css" />
 	
-	//RYAN - Change images for these two
+	<!-- RYAN - Change images for these two -->
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" href="startup.png">
 	
 	<script src="jquery-1.8.2.min.js"></script>
 	<script src="jquery.mobile-1.2.0.js"></script>
-
+	<?php
+	include("config.php");
+	?>
 </head> 
 
 	
@@ -28,6 +30,20 @@
 		<h1>My Profile</h1>
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
+
+	<div data-role="content">
+		<?php
+		if(isset($_SESSION['id'])) {
+			$user = $_SESSION['id']
+			$query = "SELECT * FROM Users WHERE email = 'user'";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_assoc($result)) {
+				<!--echo "<p>Email: ".$row["user"]."</p>";-->
+			}
+		} else {
+			echo "<p>Please sign in.</p>";
+		?>
+	</div>
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
