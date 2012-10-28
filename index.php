@@ -30,9 +30,9 @@
 	<div data-role="content">	
 	
 		<form action="search.php" method="post">
-		<label for="foo">Search:</label>
-		<input type="text" name="search" id="foo">
-		
+			<label for="foo">Search:</label>
+			<input type="text" name="search" id="foo">
+		</form>
 		<!-- Ryan: Add css so that these lists show up as buttons with logos using good css -->
 		
 		<table class="home-table">
