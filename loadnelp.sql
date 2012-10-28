@@ -9,11 +9,11 @@ drop table if exists Bookmarks;
 
 /* Create the schema for our tables */
 
-create table Users(user_id int, email text, password text, user_picture varchar, user_name text);
+create table Users(user_id int, email text, pswd text, user_picture blob, user_name text);
 create table Reviews(review_id int, written_review text, user_name text, star_rating int, num_likes int, site_id int, date_created datetime);
-create table Sites(site_id int, site_url text, num_reviews int, sum_score int, site_picture varchar);
+create table Sites(site_id int, site_url text, num_reviews int, sum_score int, site_picture blob);
 create table Likes(user_id int, review_id int);
-create table Bookmarks(user_id int, review_id);
+create table Bookmarks(user_id int, review_id int);
 
 
 /* Populate the tables with our data */
