@@ -7,13 +7,13 @@ $password = md5(mysql_real_escape_string($_POST['password']));
 
 if (!isset($username) || !isset($password)) {
 
-    header("Location: login_attempt_fail1.html");
+    header("Location: ./index.php");
     
 }
 
 elseif (empty($username) || empty($password)) {
 	
-    header("Location: login_attempt_fail2.html");
+    header("Location: ./index.php");
     
 } else {
 	
@@ -26,10 +26,10 @@ elseif (empty($username) || empty($password)) {
   
         }
         
-        header("Location: login_attempt_success.html");
+        header("Location: ./index.php");
         
     } else {
-        header("Location: login_attempt_fail3.html");
+        header("Location: ./index.php");
     }
 }
 
