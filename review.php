@@ -34,7 +34,7 @@
 		
 		<form action="submit.php" method="post">
 		<div data-role="fieldcontain">
-	     <label for="foo">Website:</label>
+	     <label for="foo">Website URL:</label>
 	     <input type="text" name="site" id="site" value=""  />
 		</div>
 	
@@ -50,7 +50,7 @@
 		
 		<div class="ui-block-b"><button type="submit" data-theme="a">Post Review</button></div>
 
-	</form>
+		</form>
 		
 	</div>
 

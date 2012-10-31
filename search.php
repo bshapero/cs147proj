@@ -33,7 +33,7 @@
 	<div data-role="content">
 		
 		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#">Politics</a></li>
+			<li><a href="#">News</a></li>
 			<li><a href="#">Social Media</a></li>
 			<li><a href="#">Health Care</a></li>
 			<li><a href="#">Sports</a></li>
