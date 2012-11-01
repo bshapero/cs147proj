@@ -41,7 +41,7 @@
 			<input type="password" id="password" name="password" />
 			</p>
 														
-			<input type="submit" id = "submit" value="Login"  />
+			<input type="submit" id = "submit1" value="Login"/>
 								
 		</form>	
 	</div>
