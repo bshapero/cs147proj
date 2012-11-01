@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
@@ -12,10 +13,11 @@
 
 	<link rel="stylesheet" href="style.css" />
 	
-	//RYAN - Change images for these two
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" href="startup.png">
-	
+	<?php
+	include("config.php");
+	?>
 	<script src="jquery-1.8.2.min.js"></script>
 	<script src="jquery.mobile-1.2.0.js"></script>
 
@@ -30,6 +32,25 @@
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
+
+	<div data-role="content">
+		<?php 
+			if(isset($_SESSION['id'])) {
+				$user = $_SESSION['id'];
+				$query = "SELECT site_url FROM Bookmarks, Users, Sites WHERE Users.email = '$user' AND Users.user_id = Bookmarks.user_id AND Bookmarks.site_id = Sites.site_id";
+				$result = mysql_query($query);
+				echo "<ul>";
+				while ($row = mysql_fetch_assoc($result)) {
+					echo "<li>".$row["site_url"]."</li><br>";
+				}
+				echo "</ul>";
+			} else {
+				echo "<p>Please sign in.</p>";
+			}
+		?>
+	</div>
+
+
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
@@ -40,10 +61,6 @@
 			</ul>
 		</div>
 	</div>
-</div>
 	
-
-</script>
-
 </body>
 </html>
