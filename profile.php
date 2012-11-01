@@ -1,6 +1,6 @@
+<?php 	session_start(); ?>
 <!DOCTYPE html> 
 <html>
-
 <head>
 	<title>NELP!</title> 
 	<meta charset="utf-8">
@@ -34,22 +34,21 @@
 
 	<div data-role="content">
 		<?php
-		$test_email = "mrwunderboy@gmail.com";
-		/*-- if(isset($_SESSION['id'])) {
+		if(isset($_SESSION['id'])) {
 			$user = $_SESSION['id'];
 			$query = "SELECT * FROM Users WHERE email = '$user'";
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
-				echo "<p>Email: ".$row["user"]."</p>";
+				echo "<p>Email: ".$row["email"]."</p>";
+			}
+			/*echo "<p>Email: $test_email</p><br>";*/
+			$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_assoc($result)) {
+				echo "<p>Review: ".$row["written_review"]."</p><br>";
 			}
 		} else {
 			echo "<p>Please sign in.</p>";
-		} */
-		echo "<p>Email: $test_email</p><br>";
-		$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$test_email' AND Users.email = '$test_email'";
-		$result = mysql_query($query);
-		while ($row = mysql_fetch_assoc($result)) {
-			echo "<p>Review: ".$row["written_review"]."</p><br>";
 		}
 		?>
 	</div>
