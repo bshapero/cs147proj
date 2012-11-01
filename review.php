@@ -12,7 +12,6 @@
 
 	<link rel="stylesheet" href="style.css" />
 	
-	//RYAN - Change images for these two
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" href="startup.png">
 	
@@ -32,7 +31,7 @@
 
 	<div data-role="content">
 		
-		<form action="submit.php" method="post">
+		<form action="add_review.php" method="post">
 		<div data-role="fieldcontain">
 	     <label for="foo">Website URL:</label>
 	     <input type="text" name="site" id="site" value=""  />
@@ -45,14 +44,21 @@
 	    
 	    <div data-role="fieldcontain">
 	     <label for="foo">Comment:</label>
-	     <input type="text" name="site" id="site" value=""  />
+	     <input type="text" name="comment" id="comment" value=""  />
 		</div>
 		
-		<div class="ui-block-b"><button type="submit" data-theme="a">Post Review</button></div>
+		<div class="ui-block-b">
+		<button type="submit" data-theme="a">Post Review</button>
+		</div>
 
 		</form>
 		
 	</div>
+
+	<script type="text/javascript">
+	
+	
+	</script>
 
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
