@@ -27,6 +27,7 @@
 <body> 
 
 	<div data-role="header">
+		<a href="index.php">Back</a>
 		<h1>My Profile</h1>
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
