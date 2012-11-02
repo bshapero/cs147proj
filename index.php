@@ -1,3 +1,4 @@
+<?php 	session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
@@ -10,7 +11,15 @@
 	
 <body> 
 	<div data-role="header">
-		<h1>NELP!</h1>
+	
+	<?php
+		if(isset($_SESSION['id'])) { 
+			$user_email = $_SESSION['id'];
+			echo "<h1> Welcome $user_email :) </h1>";
+		} else { 
+			echo "<h1>NELP!</h1>";
+		}
+		?>
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
