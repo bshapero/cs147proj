@@ -31,7 +31,7 @@
 
 	<div data-role="content">
 		
-		<form action="add_review.php" method="post">
+		<form action="add_review.php" method="post" id="add_review">
 		<div data-role="fieldcontain">
 	     <label for="foo">Website URL:</label>
 	     <input type="text" name="site" id="site" value=""  />
@@ -56,7 +56,10 @@
 	</div>
 
 	<script type="text/javascript">
-	
+	$("#add_review").submit(function (event) {
+							event.preventDefault();
+							alert("Hello world");
+						});
 	
 	</script>
 
