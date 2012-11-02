@@ -41,7 +41,7 @@
 				$result = mysql_query($query);
 				echo "<ul>";
 				while ($row = mysql_fetch_assoc($result)) {
-					echo "<li>".$row["site_url"]."</li><br>";
+					echo "<li><a href=".$row["site_url"].">".$row["site_url"]."</a></li><br>";
 				}
 				echo "</ul>";
 			} else {
