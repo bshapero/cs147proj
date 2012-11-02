@@ -38,19 +38,19 @@
 		<button type="submit" data-theme="a">Post Review</button>
 		</div>
 
+	<script type="text/javascript">
+		$("#add_review").submit(function(event) {
+							event.preventDefault();
+							$.post("./add_review.php", $("#add_review").serialize(),
+							function() {
+							});
+						});
+	</script>
+
 		</form>
 		
 	</div>
-
-	<script type="text/javascript">
-	$("#add_review").submit(function (event) {
-							event.preventDefault();
-							alert("Hello world");
-						});
-	
-	</script>
-
-
+	<div id="result"></div>
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
