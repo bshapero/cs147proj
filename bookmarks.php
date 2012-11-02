@@ -10,18 +10,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
 	<link rel="stylesheet" href="jquery.mobile-1.2.0.css" />
+	<script src="jquery-1.8.2.min.js"></script>
+	<script src="jquery.mobile-1.2.0.js"></script>
 
-	<link rel="stylesheet" href="style.css" />
+
+	<link rel="stylesheet" href="nelpstyle.css" />
 	
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" href="startup.png">
 	<?php
 	include("config.php");
 	?>
-	<script src="jquery-1.8.2.min.js"></script>
-	<script src="jquery.mobile-1.2.0.js"></script>
-
-</head> 
+	</head> 
 
 	
 <body> 
@@ -41,7 +41,8 @@
 				$result = mysql_query($query);
 				echo "<ul>";
 				while ($row = mysql_fetch_assoc($result)) {
-					echo "<li><a href=".$row["site_url"].">".$row["site_url"]."</a></li><br>";
+					echo "<li><a href=".$row['site_url']." >";
+					echo $row['site_url']."</a></li><br>";
 				}
 				echo "</ul>";
 			} else {
