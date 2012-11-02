@@ -2,7 +2,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<<?php
+	<?php
 	include("header.php");
 	include("config.php");
 	?>
@@ -30,7 +30,7 @@
 			$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
-				echo "<p>Review: ".$row["written_review"]."</p><br>";
+				echo "<p>Review: ".$row["written_review"]."</p> <br>";
 			}
 		} else {
 			echo "<p>Please sign in.</p>";

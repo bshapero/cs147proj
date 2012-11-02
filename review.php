@@ -39,10 +39,16 @@
 		</div>
 
 	<script type="text/javascript">
+			$("button").click(function (event) {
+				event.preventDefault();
+				$("#add_review").submit();
+			});
 		$("#add_review").submit(function(event) {
-							event.preventDefault();
 							$.post("./add_review.php", $("#add_review").serialize(),
-							function() {
+							function(data) { 
+								window.location = "./profile.php";
+
+
 							});
 						});
 	</script>
