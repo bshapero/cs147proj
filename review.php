@@ -18,8 +18,7 @@
 		</div><!-- /header -->
 	
 		<div data-role="content">
-			<div id="result"></div>
-	
+			
 			<form action="add_review.php" method="post" id="add_review">
 			<div data-role="fieldcontain">
 		     <label for="foo">Website URL:</label>
@@ -41,16 +40,19 @@
 			</div>
 	
 			</form>
-			
+			<div id="result"></div>
+
 			<script type="text/javascript">
 				$("#add_review").submit(function() {
 	          					  event.preventDefault();
+	          					  event.stopPropagation();
 	          					  $.post("add_review.php", $("#add_review").serialize(),
 	          					  function(data) {
 	          					  	$("#result").html(data);
 	          					  });	
 	              });
 			</script>
+
 
 			
 		</div><!-- /content -->
