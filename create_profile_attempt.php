@@ -16,9 +16,9 @@ else if (empty($email) || empty($password)) {
     
 } else {
 
-    $q = "select MAX(user_id) from Users";
-    $id = (mysql_query($q));
-    $id1 = $id + 1;
+    $q = "select MAX(user_id) as max from Users";
+    $id = mysql_fetch_assoc(mysql_query($q));
+    $id1 = $id["max"] + 1;
     $result = mysql_query("insert into Users values('$id1', '$email', '$password', null, null);");
     
     $_SESSION['id'] = $email;
