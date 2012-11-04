@@ -24,9 +24,13 @@
 			$query = "SELECT * FROM Users WHERE email = '$user'";
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
+				if (isset($row["user_picture"])) {
+					echo "<img src=".$row["user_picture"]." width=223 height=284/><br>";
+				} else {
+					echo "<img src='nophoto.png' ><br>";
+				}
 				echo "<p>Email: ".$row["email"]."</p>";
 			}
-			/*echo "<p>Email: $test_email</p><br>";*/
 			$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
