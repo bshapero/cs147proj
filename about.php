@@ -17,7 +17,20 @@
 	</div><!-- /header -->
 	
 	<div data-role="content">
-		<p>Because there is a diverse opinion of what is important when searching for news on the Internet, we are trying to provide people with information regarding the "best" political apps or websites relevant to their interests, without deciding for them what "best" means.</p>
+		<div class="center">
+		<h1>1.</h1>
+		<p>Browse different websites on the internet that have been rated by people like you</p>
+		<h1>2.</h1>
+		<p>Like websites that you have found so you can come back and explore them later</p>
+		<h1>3.</h1>
+		<p>Login to comment and rate websites yourself!</p>
+		<h1>4.</h1>
+		<ul>
+			<li><a href="index.php"><img src="browse.gif"></img></a></li>
+			<li>or</li>
+			<li><a href="login.php"><img src="login.gif"></img></a></li>
+		</ul>
+		</div>
 	</div>
 	
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
