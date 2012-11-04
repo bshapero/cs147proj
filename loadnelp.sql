@@ -26,7 +26,7 @@ insert into Reviews values(1, 'Review numero uno', 'jneighbs88@gmail.com', 5, 0,
 insert into Reviews values(2, 'Review numero dos', 'ryanr2013@gmail.com', 1, 0, 1, '2012-10-22 04:33:40');
 insert into Reviews values(3, 'Review numero treis', 'mrwunderboy@gmail.com', 3, 0, 1, '2012-10-22 08:42:11');
 
-insert into Sites values (1, 'http://www.fox.com/', 3, 9, null, "News");
+insert into Sites values (1, 'http://www.foxnews.com/', 3, 9, null, "News");
 
 insert into Likes values (1, 3);
 insert into Likes values (2, 3);
