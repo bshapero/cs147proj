@@ -1,4 +1,9 @@
-<?php session_start() ?>
+<?php 
+	session_start();
+	if (!isset($_GET["site-url"])) {
+		header("Location: ./index.php");
+	}
+?>
 <!DOCTYPE html> 
 <html>
 
@@ -17,7 +22,11 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-	
+		<div class="site-url"></div>
+		<div class="avg-rating"></div>
+		<div class="review-count"></div>
+		<div class="add-favorite-btn"></div>
+		<div class="site-reviews"></div>
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
