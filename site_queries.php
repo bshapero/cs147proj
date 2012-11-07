@@ -14,35 +14,38 @@
 	<?php
 		if(isset($_SESSION['id'])) { 
 			$user_email = $_SESSION['id'];
-			echo "<h1> Welcome $user_email :) </h1>";
+			echo "<h1>$user_email :) </h1>";
 		} else { 
 			echo "<h1>Chirp</h1>";
 		}
 		?>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
+		
 	</div><!-- /header -->
 
 	<div data-role="content">	
 		<div class="center">
 			<?php
-$search = mysql_real_escape_string($_POST['search']);
+				
+				$search = mysql_real_escape_string($_POST['search']);
 
-if (!isset($search)) {
-    header("Location: ./login_attempt_failure.php");
+				if (!isset($search)) {
+   					header("Location: ./login_attempt_failure.php");
      
-} else {
+				} else {
 
-    $result   = mysql_query("select * from Sites where site_url like '%$search%'");
-    $rowCheck = mysql_num_rows($result);
-    if ($rowCheck > 0) {
-        while ($row = mysql_fetch_array($result)) {
-
-			echo "<div> Welcome :) </div>";
-      
-        }
-        
-   
-        
+   					 $result   = mysql_query("select * from Sites where site_url like '%$search%' order by category");
+  					 $rowCheck = mysql_num_rows($result);
+  					 if ($rowCheck > 0) {
+      				  while ($row = mysql_fetch_array($result)) {
+						$url = $row[site_url];
+						$category = $row[category];
+						echo "<div>
+								<form action='site.php' method='get'>
+								<input type='hidden' name='site_url' value='$url'/>
+								<input type='submit' value='$url  #$category'/>
+								</form>
+							  </div>";
+      				  }     
     } 
 }
 
