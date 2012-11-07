@@ -38,7 +38,7 @@
 				echo "<p>Review: ".$row["written_review"]."</p> <br>";
 			}
 		} else {
-			echo "<p>Please sign in.</p>";
+			echo "<p>In order to manage your profile, <a href='login.php'>please sign in here.</a></p>";
 		}
 		?>
 	</div>

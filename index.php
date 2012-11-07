@@ -15,7 +15,7 @@
 	<?php
 		if(isset($_SESSION['id'])) { 
 			$user_email = $_SESSION['id'];
-			echo "<h1> Welcome $user_email :) </h1>";
+			echo "<h1>$user_email</h1>";
 		} else { 
 			echo "<h1>Chirp</h1>";
 		}
@@ -32,15 +32,52 @@
 			?>
 			<h1>OR</h1>
 			<p>by category</p>
+			
 			<ul data-role="listview" data-inset="true" data-filter="true">
-				<li><a href="#">News</a></li>
-				<li><a href="#">Social Media</a></li>
-				<li><a href="#">Health Care</a></li>
-				<li><a href="#">Sports</a></li>
-				<li><a href="#">Entertainment</a></li>
-				<li><a href="#">Games</a></li>
-				<li><a href="#">Electronics</a></li>
+			<li>
+			    <form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='News'/>
+				<input type='submit' value='News'/>
+				</form>
+		    </li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Social Media'/>
+				<input type='submit' value='Social Media'/>
+				</form>
+			</li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Health Care'/>
+				<input type='submit' value='Health Care'/>
+				</form>
+			</li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Sports'/>
+				<input type='submit' value='Sports'/>
+				</form>
+			</li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Entertainment'/>
+				<input type='submit' value='Entertainment'/>
+				</form>
+			</li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Games'/>
+				<input type='submit' value='Games'/>
+				</form>
+			</li>
+			<li>
+				<form action='site_queries.php' method='post'>
+				<input type='hidden' name='search_by_category' value='Electronics'/>
+				<input type='submit' value='Electronics'/>
+				</form>
+			</li>
 			</ul>
+			
 		</div>
 	</div><!-- /content -->
 	
