@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if (!isset($_GET["site-url"])) {
+	if (!isset($_GET["site_url"])) {
 		header("Location: ./index.php");
 	}
 ?>
@@ -22,8 +22,20 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div class="site-url"></div>
-		<div class="avg-rating"></div>
+		<div class="site-url">
+			<?php
+					echo "<a href=".$_GET['site_url']." >";
+					echo $_GET['site_url']."</a><br>";
+			?>
+		</div>
+		<div class="avg-rating">
+			<?php 
+				$site_url = $_GET["site_url"];
+				$query = "SELECT * FROM Sites, Reviews where 'Sites.site_url' = '$site_url' AND 'Reviews.site_id' = 'Sites.site_id'";
+				$result = mysql_fetch_assoc(mysql_query($query));
+				echo "<p>".$result["sum_score"]."</p><br>";
+			?>
+		</div>
 		<div class="review-count"></div>
 		<div class="add-favorite-btn"></div>
 		<div class="site-reviews"></div>
