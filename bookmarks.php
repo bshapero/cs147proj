@@ -32,7 +32,7 @@
 				}
 				echo "</ul>";
 			} else {
-				echo "<p>Please sign in.</p>";
+				echo "<p>In order to bookmark pages you like and refer to them later, <a href='login.php'>please sign in here.</a></p>";
 			}
 		?>
 	</div>
