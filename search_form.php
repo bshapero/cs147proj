@@ -1,4 +1,4 @@
-<form action="search.php" method="post">
-	<label for="foo"></label>
-	<input type="text" name="search" id="foo">
+<form action="site_queries.php" method="post">
+	<input type="text" name="search" id="search"/>
+	<input type="submit" id = "submit" value="Search"/>	
 </form>
