@@ -31,9 +31,13 @@
 		<div class="avg-rating">
 			<?php 
 				$site_url = $_GET["site_url"];
-				$query = "SELECT * FROM Sites, Reviews where 'Sites.site_url' = '$site_url' AND 'Reviews.site_id' = 'Sites.site_id'";
-				$result = mysql_fetch_assoc(mysql_query($query));
-				echo "<p>".$result["sum_score"]."</p><br>";
+				$query = "SELECT distinct num_reviews, sum_score FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id";
+				$result = mysql_query($query);
+				$rowCheck = mysql_num_rows($result);
+				while ($row = mysql_fetch_array($result)) {
+					$avg = $row["sum_score"] / $row["num_reviews"];
+					echo "<p>Average Rating: ".$avg."/5 </p>";
+				}
 			?>
 		</div>
 		<div class="review-count"></div>
