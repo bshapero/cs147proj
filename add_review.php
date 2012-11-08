@@ -6,20 +6,20 @@
 		$email = mysql_real_escape_string($_SESSION["id"]);		
 		$rating = mysql_real_escape_string($_POST["slider"]);
 		$comment = mysql_real_escape_string($_POST["comment"]);
-		$site = $_POST["site"];
+		$site = mysql_real_escape_string($_POST["site"]);
 		$t = date("Y-m-d H:i:s", time());
 
 		$q1 = "SELECT * FROM Reviews WHERE user_name = '$email'";
 		$r1 = mysql_query($q1);
 		$rowCheck = mysql_num_rows($r1);
-		echo $rowCheck;
 		if ($rowCheck > 0) {
 			$review = mysql_fetch_assoc($r1);
 			$oldscore = $review['star_rating'];
 			$q2 = "UPDATE Reviews SET star_rating = '$rating', written_review = '$comment', date_created = '$t' WHERE user_name = '$email'";
-			//$q3 = "UPDATE Sites SET sum_score = sum_score - '$oldscore' + '$rating' WHERE site_url = '$site'";
-			$r2 = mysql_query($q2."; ".$q3);
-			echo "  Updated your review.";
+			$q3 = "UPDATE Sites SET sum_score = sum_score - '$oldscore' + '$rating' WHERE site_url = '$site'";
+			$r2 = mysql_query($q2);
+			$r3 = mysql_query($q3);
+			echo "<p>Updated your review.</p>";
 		} else {
 			$t = date("Y-m-d H:i:s", time());
 			$q = "select MAX(review_id) AS max from Reviews";
