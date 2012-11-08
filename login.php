@@ -1,3 +1,4 @@
+<?php 	session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
@@ -14,6 +15,7 @@
 		<h1>Chirp</h1>
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
+
 
 	<div class="form">
 		<form action="login_attempt.php" method="post" id="login">
@@ -47,10 +49,12 @@
 		</form>	
 	</div>
 
+	<div class = "center"> or </div>
+
 	<div class="form">
 		<form action="logout.php" method="post" id="login2">
 																		
-			<input type="submit" id = "submit2" value="Create New Profile"/>
+			<input type="submit" id = "submit2" value="Logout"/>
 								
 		</form>	
 	</div>

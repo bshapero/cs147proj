@@ -27,18 +27,23 @@
 	</div><!-- /header -->
 
 
+
 	<div data-role="content">
 		<?php 
 			if(isset($_SESSION['id'])) {
 				$user = $_SESSION['id'];
 				$query = "SELECT site_url FROM Bookmarks, Users, Sites WHERE Users.email = '$user' AND Users.user_id = Bookmarks.user_id AND Bookmarks.site_id = Sites.site_id";
 				$result = mysql_query($query);
+				$rowCheck = mysql_num_rows($result);
+				if ($rowCheck > 0) {
 				echo "<ul>";
-				while ($row = mysql_fetch_assoc($result)) {
+				while ($row = mysql_fetch_array($result)) {
+				//echo "Yo";
 					echo "<li><a href=".$row['site_url']." >";
 					echo $row['site_url']."</a></li><br>";
 				}
 				echo "</ul>";
+				}
 			} else {
 				echo "<p>In order to bookmark pages you like and refer to them later, <a href='login.php'>please sign in here.</a></p>";
 			}
