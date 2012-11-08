@@ -50,8 +50,25 @@
 				}
 			?>
 		</div>
-		<div class="add-favorite-btn"></div>
-		<div class="site-reviews"></div>
+		<div class="add-favorite-btn">
+			<button class="add-favorite-btn">Add To My Favorites</button>
+		</div>
+		<div class="site-reviews">
+			<?php
+				$site_url = mysql_real_escape_string($_GET["site_url"]);
+				$query = "SELECT * FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id ORDER BY date_created";
+				$result = $result = mysql_query($query);
+				while ($row = mysql_fetch_array($result)) {
+					echo "<div class='site-review' >";
+					echo "<button class='like-review-btn'>Like</button>";
+					echo $row["user_name"].": <br>";
+					echo date($row["date_created"])."<br>";
+					echo "Rating: ".$row["star_rating"]."<br>";
+					echo "Comment: ".$row["written_review"];
+					echo "</div><br>";
+				}
+			?>
+		</div>
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
