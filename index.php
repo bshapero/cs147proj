@@ -12,15 +12,14 @@
 <body> 
 	<div data-role="header">
 		<h1>Chirp</h1>
-		
-		<?php
-		if(isset($_SESSION['id'])) { 
-			$user_email = $_SESSION['id'];
-			echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
-			echo "$user_email";
-			echo "</a>";
-		}
-		?>
+		<a href="profile.php" data-icon="gear" class="ui-btn-right">
+			<?php
+				if(isset($_SESSION['id'])) { 
+					$user_email = $_SESSION['id'];
+					echo "$user_email";
+				}
+			?>
+		</a>
 		
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->

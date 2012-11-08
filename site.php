@@ -16,8 +16,16 @@
 
 <body>
 	<div data-role="header">
-		<a href="index.php">Back</a>
+		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<h1>Chirp</h1>
+		<a href="profile.php" data-icon="gear" class="ui-btn-right">
+			<?php
+				if(isset($_SESSION['id'])) { 
+					$user_email = $_SESSION['id'];
+					echo "$user_email";
+				}
+			?>
+		</a>
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
@@ -60,7 +68,7 @@
 				$result = $result = mysql_query($query);
 				while ($row = mysql_fetch_array($result)) {
 					echo "<div class='site-review' >";
-					echo "<button class='like-review-btn'>Like</button>";
+					echo "<button class='like-review-btn'>Like Review</button>";
 					echo $row["user_name"].": <br>";
 					echo date($row["date_created"])."<br>";
 					echo "Rating: ".$row["star_rating"]."<br>";
@@ -75,10 +83,10 @@
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
-				<li><a href="index.php" id="search" data-icon="custom">Search</a></li>
-				<li></li>
+				<li><a href="index.php" id="search" data-icon="custom" >Search</a></li>
 				<li><a href="profile.php" id="profile" data-icon="custom">My Profile</a></li>
-				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom" >Bookmarks</a></li>
+				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom">Bookmarks</a></li>
+				<li><a href="login.php" id="login" data-icon="custom">Login</a></li>
 			</ul>
 		</div>
 	</div>

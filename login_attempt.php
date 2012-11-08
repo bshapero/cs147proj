@@ -38,7 +38,7 @@ else if (empty($email) || empty($password)) {
   
         }
         
-    header("Location: ./login_attempt_success.php");
+    header("Location: ./index.php");
 
         
     } else {

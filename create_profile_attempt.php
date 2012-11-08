@@ -35,7 +35,7 @@ else if (empty($email) || empty($password)) {
     $result = mysql_query("insert into Users values('$id1', '$email', '$password', null, null);");
     
     $_SESSION['id'] = $email;
-    header("Location: ./login_attempt_success.php");
+    header("Location: ./index.php");
 
 }
 
