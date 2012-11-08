@@ -60,7 +60,6 @@
 	</div>
 	
 
-</script>
 
 </body>
 </html>

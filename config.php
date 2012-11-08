@@ -1,4 +1,4 @@
-<?php
+ <?php
 $host = "mysql-user-master.stanford.edu";
 $user = "ccs147bshapero";
 $pass = "joogoyae";

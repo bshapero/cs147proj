@@ -1,9 +1,11 @@
+<?php 	session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
 <head>
 <?php
 	include("header.php");
+	include("config.php");
 	?>
 </head> 
 
@@ -18,15 +20,32 @@
 
 	<div data-role="content">
 		
-		<form action="submit.php" method="post">
+		<form action="add_website_attempt.php" method="post" id="add_website_form">
 		<div data-role="fieldcontain">
 	     <label for="foo">Website URL:</label>
-	     <input type="text" name="site" id="site" value=""  />
+	     <?php
+	     $url = mysql_real_escape_string($_GET['url']);
+	     echo "<input type='text' name='url' value='$url' />";
+	     ?>
+	    <br/>Example: http://www.google.com/
+	     
 		</div>
+		<label>Category:</label>
+	      <select name="category_dropdown" form="add_website_form">
+  			<option value="News">News</option>
+ 			<option value="Social Media">Social Media</option>
+  			<option value="Health Care">Health Care</option>
+  			<option value="Sports">Sports</option>
+  			<option value="Entertainment">Entertainment</option>
+  			<option value="Games">Games</option>
+  			<option value="Electronics">Electronics</option>
+		</select>
 		
 		<div class="ui-block-b"><button type="submit" data-theme="a">Add Website</button></div>
 
 		</form>
+		
+		 
 		
 	</div>
 

@@ -26,6 +26,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
+	<h1>My Profile: </h1>
 		<?php
 		if(isset($_SESSION['id'])) {
 			$user = $_SESSION['id'];

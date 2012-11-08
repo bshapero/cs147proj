@@ -7,7 +7,7 @@
 	include("header.php");
 	include("config.php");
 	?>
-	</head> 
+</head> 
 
 	
 <body> 
@@ -23,12 +23,12 @@
 		}
 		?>
 		</a>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
 
 
 	<div data-role="content">
+	<h1>Bookmarks: </h1>
 		<?php 
 			if(isset($_SESSION['id'])) {
 				$user = $_SESSION['id'];
@@ -38,9 +38,16 @@
 				if ($rowCheck > 0) {
 				echo "<ul>";
 				while ($row = mysql_fetch_array($result)) {
-				//echo "Yo";
-					echo "<li><a href=".$row['site_url']." >";
-					echo $row['site_url']."</a></li><br>";
+				
+					$url = $row['site_url'];	
+					echo "<div>
+								<form action='site.php' method='get'>
+								<input type='hidden' name='site_url' value='$url'/>
+								<input type='submit' value='$url'/>
+								</form>
+							  </div>";
+					
+					
 				}
 				echo "</ul>";
 				}

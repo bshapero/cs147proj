@@ -31,6 +31,7 @@
 
 			 	if (!empty($search_by_category)) {
       			
+      			     echo "<h1>Results: </h1>";
       				 $result   = mysql_query("select * from Sites where category='$search_by_category' order by site_url");
   					 $rowCheck = mysql_num_rows($result);
   					 if ($rowCheck > 0) {
@@ -48,8 +49,16 @@
       			
 				} else  {
    					
+   					 $result2   = mysql_query("select * from Sites where site_url='$search_by_website'");
+  					 $rowCheck2 = mysql_num_rows($result2);
+  					 if ($rowCheck2 == 0 && !empty($search_by_website)) {
+  					 echo "No exact match...Would you like to <a href='add_website.php?url=$search_by_website'>add this website here: \"$search_by_website\"?</a>";	
+  					 }
+   					
+   					
+   					 echo "<h1>Results: </h1>";
    					 $result   = mysql_query("select * from Sites where site_url like '%$search_by_website%' order by category, site_url");
-  					 $rowCheck = mysql_num_rows($result);
+   					 $rowCheck = mysql_num_rows($result);
   					 if ($rowCheck > 0) {
       				  while ($row = mysql_fetch_array($result)) {
 						$url = $row[site_url];
