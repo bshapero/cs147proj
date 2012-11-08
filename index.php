@@ -34,48 +34,13 @@
 			<p>by category</p>
 			
 			<ul data-role="listview" data-inset="true" data-filter="true">
-			<li>
-			    <form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='News'/>
-				<input type='submit' value='News'/>
-				</form>
-		    </li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Social Media'/>
-				<input type='submit' value='Social Media'/>
-				</form>
-			</li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Health Care'/>
-				<input type='submit' value='Health Care'/>
-				</form>
-			</li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Sports'/>
-				<input type='submit' value='Sports'/>
-				</form>
-			</li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Entertainment'/>
-				<input type='submit' value='Entertainment'/>
-				</form>
-			</li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Games'/>
-				<input type='submit' value='Games'/>
-				</form>
-			</li>
-			<li>
-				<form action='site_queries.php' method='post'>
-				<input type='hidden' name='search_by_category' value='Electronics'/>
-				<input type='submit' value='Electronics'/>
-				</form>
-			</li>
+			<li><a href="site_queries.php?search_by_category=News">News</a></li>
+			<li><a href="site_queries.php?search_by_category=Social Media">Social Media</a></li>
+			<li><a href="site_queries.php?search_by_category=Health Care">Health Care</a></li>
+			<li><a href="site_queries.php?search_by_category=Sports">Sports</a></li>
+			<li><a href="site_queries.php?search_by_category=Entertainment">Entertainment</a></li>
+			<li><a href="site_queries.php?search_by_category=Games">Games</a></li>
+			<li><a href="site_queries.php?search_by_category=Electronics">Electronics</a></li>
 			</ul>
 			
 		</div>
