@@ -30,7 +30,7 @@
 		</div>
 		<div class="avg-rating">
 			<?php 
-				$site_url = $_GET["site_url"];
+				$site_url = mysql_real_escape_string($_GET["site_url"]);
 				$query = "SELECT distinct num_reviews, sum_score FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id";
 				$result = mysql_query($query);
 				$rowCheck = mysql_num_rows($result);
@@ -40,7 +40,16 @@
 				}
 			?>
 		</div>
-		<div class="review-count"></div>
+		<div class="review-count">
+			<?php
+				$site_url = mysql_real_escape_string($_GET["site_url"]);
+				$query = "SELECT num_reviews FROM Sites where site_url = '$site_url'";
+				$result = mysql_query($query);
+				while ($row = mysql_fetch_array($result)) {
+					echo "<p>Number of Reviews: ".$row["num_reviews"]."</p>";
+				}
+			?>
+		</div>
 		<div class="add-favorite-btn"></div>
 		<div class="site-reviews"></div>
 	</div><!-- /content -->
