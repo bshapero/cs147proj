@@ -13,7 +13,7 @@ create table Users(user_id int, email text, pswd text, user_picture text, user_n
 create table Reviews(review_id int, written_review text, user_name text, star_rating int, num_likes int, site_id int, date_created datetime);
 create table Sites(site_id int, site_url text, num_reviews int, sum_score int, site_picture text, category text);
 create table Likes(user_id int, review_id int);
-create table Bookmarks(user_id int, review_id int);
+create table Bookmarks(user_id int, site_id int);
 
 
 /* Populate the tables with our data */
@@ -42,4 +42,14 @@ insert into Likes values (2, 3);
 insert into Likes values (3, 2);
 
 insert into Bookmarks values (1,1);
+insert into Bookmarks values (2,1);
 insert into Bookmarks values (3,1);
+insert into Bookmarks values (1,2);
+insert into Bookmarks values (2,3);
+insert into Bookmarks values (3,4);
+insert into Bookmarks values (1,5);
+insert into Bookmarks values (2,6);
+insert into Bookmarks values (3,7);
+insert into Bookmarks values (1,9);
+insert into Bookmarks values (2,8);
+insert into Bookmarks values (3,10);
