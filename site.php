@@ -15,6 +15,7 @@
 </head> 
 
 <body>
+	<div data-role="page">
 	<div data-role="header">
 		<a href="index.php">Back</a>
 		<h1>Chirp</h1>
@@ -50,7 +51,7 @@
 				}
 			?>
 		</div>
-		<div class="add-favorite-btn">
+		<div class="add-favorite">
 			<button class="add-favorite-btn">Add To My Favorites</button>
 		</div>
 		<div class="site-reviews">
@@ -70,6 +71,13 @@
 				}
 			?>
 		</div>
+		<script>
+			$(".add-favorite-btn").click(function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				alert("Hello");
+				});			
+		</script>
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
@@ -81,7 +89,8 @@
 				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom" >Bookmarks</a></li>
 			</ul>
 		</div>
-	</div>
+	</div> <!-- /footer -->
+	</div> <!-- /page -->
 
 
 </body>
