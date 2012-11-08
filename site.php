@@ -64,7 +64,8 @@
 					echo $row["user_name"].": <br>";
 					echo date($row["date_created"])."<br>";
 					echo "Rating: ".$row["star_rating"]."<br>";
-					echo "Comment: ".$row["written_review"];
+					echo "Comment: ".$row["written_review"]."<br>";
+					echo "Likes: ".$row["num_likes"]."<br>";
 					echo "</div><br>";
 				}
 			?>
