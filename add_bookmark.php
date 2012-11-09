@@ -9,7 +9,7 @@
 	$rowCheck = mysql_num_rows($result);
 	while ($row = mysql_fetch_array($result)) {
 		$insert = "INSERT INTO Bookmarks values (".$row["user_id"].", ".$row["site_id"].")";
-		$result = mysql_query($insert);
+		$r1 = mysql_query($insert);
 		echo "Success";
 	}
 
