@@ -107,6 +107,40 @@
 				}
 			});			
 		</script>
+		
+		<h1 class="center">Review this website</h1>
+		
+		<form action="add_review.php" method="post" id="add_review">
+		
+			<div data-role="fieldcontain">
+			<label for="slider">Stars:</label>
+			<input type="range" name="slider" id="slider" value="0" min="0" max="5" />
+		    </div>
+		    
+		    <div data-role="fieldcontain">
+		     <label for="foo">Comment:</label>
+		     <input type="text" name="comment" id="comment" value=""  />
+			</div>
+			
+			<div class="ui-block-b">
+			<button type="submit" data-theme="a">Post Review</button>
+			</div>
+	
+			</form>
+			<div id="result"></div>
+
+			<script type="text/javascript">
+				$("#add_review").submit(function() {
+	          					  event.preventDefault();
+	          					  event.stopPropagation();
+	          					  $.post("add_review.php", $("#add_review").serialize(),
+	          					  function(data) {
+	          					  	$("#result").html(data);
+	          					  });	
+	              });
+			</script>
+		
+		
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
