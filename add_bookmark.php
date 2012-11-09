@@ -10,7 +10,7 @@
 	while ($row = mysql_fetch_array($result)) {
 		$insert = "INSERT INTO Bookmarks values (".$row["user_id"].", ".$row["site_id"].")";
 		$r1 = mysql_query($insert);
-		echo "Success";
+		echo "Favorited";
 	}
 
 ?>
