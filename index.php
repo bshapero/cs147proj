@@ -12,26 +12,25 @@
 <body> 
 	<div data-role="header">
 		<h1>Chirp</h1>
-		<a href="profile.php" data-icon="gear" class="ui-btn-right">
 			<?php
 				if(isset($_SESSION['id'])) { 
 					$user_email = $_SESSION['id'];
+					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
 					echo "$user_email";
+					echo "</a>";
 				}
 			?>
-		</a>
-		
 		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
 	<div data-role="content">	
 		<div class="center">
-			<h1>SEARCH</h1>
-			<p>by website</p>
+			<h1 class="smoosh">SEARCH</h1>
+			<p class="smoosh">by website</p>
 			<?php
 				include("search_form.php");
 			?>
-			<h1>OR</h1>
+			<h1 class="smoosh">OR</h1>
 			<p>by category</p>
 			
 			<ul data-role="listview" data-inset="true" data-filter="true">

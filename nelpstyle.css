@@ -3,6 +3,10 @@ width: 100%;
 text-align: center;
 }
 
+.smoosh {
+    line-height:15%
+}
+
 a {
     text-decoration: none;
 }

@@ -13,15 +13,14 @@
 	<div data-role="header">
 		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<h1>Chirp</h1>
-		<a href="profile.php" data-icon="gear" class="ui-btn-right">
 			<?php
 				if(isset($_SESSION['id'])) { 
 					$user_email = $_SESSION['id'];
+					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
 					echo "$user_email";
+					echo "</a>";
 				}
 			?>
-		</a>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
 
