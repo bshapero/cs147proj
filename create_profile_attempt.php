@@ -29,13 +29,23 @@ else if (empty($email) || empty($password)) {
     
 } else {
 
-    $q = "select MAX(user_id) as max from Users";
-    $id = mysql_fetch_assoc(mysql_query($q));
-    $id1 = $id["max"] + 1;
-    $result = mysql_query("insert into Users values('$id1', '$email', '$password', null, null);");
+
+
+	 $unique   = mysql_query("select * from Users where email='$email'");
+    $rowCheck = mysql_num_rows($unique);
+    if ($rowCheck == 0) {
+        
+  	  $q = "select MAX(user_id) as max from Users";
+  	  $id = mysql_fetch_assoc(mysql_query($q));
+  	  $id1 = $id["max"] + 1;
+  	  $result = mysql_query("insert into Users values('$id1', '$email', '$password', null, null);");
     
-    $_SESSION['id'] = $email;
-    header("Location: ./index.php");
+  	  $_SESSION['id'] = $email;
+  	  header("Location: ./index.php");
+    
+	} else {
+		header("Location: ./login_attempt_failure.php");
+	}
 
 }
 
