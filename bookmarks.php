@@ -18,8 +18,10 @@
 			<?php
 				if(isset($_SESSION['id'])) { 
 					$user_email = $_SESSION['id'];
+					$name = current(explode("@", $user_email));
+					echo "$first";
 					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
-					echo "$user_email";
+					echo "$name";
 					echo "</a>";
 				}
 			?>
