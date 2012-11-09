@@ -17,18 +17,9 @@
 <body>
 	<div data-role="page">
 	<div data-role="header">
-		<a href="#" data-icon="back" data-rel="back">Back</a>
+		<a href="index.php">Back</a>
 		<h1>Chirp</h1>
-			<?php
-				if(isset($_SESSION['id'])) { 
-					$user_email = $_SESSION['id'];
-					$name = current(explode("@", $user_email));
-					echo "$first";
-					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
-					echo "$name";
-					echo "</a>";
-				}
-			?>
+		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -61,7 +52,21 @@
 			?>
 		</div>
 		<div class="add-favorite">
-			<button class="add-favorite-btn">Add To My Favorites</button>
+			<?php
+				if(isset($_SESSION['id'])) {
+					$site_url = mysql_real_escape_string($_GET["site_url"]);
+					$email = $_SESSION['id'];	
+					$query = "SELECT Bookmarks.user_id, Bookmarks.site_id from Bookmarks, Users, Sites WHERE Bookmarks.site_id = Sites.site_id AND Sites.site_url = '$site_url' AND Users.user_id = Bookmarks.user_id  AND Users.email = '$email'";
+					$result = mysql_query($query);
+					$rowCheck = mysql_num_rows($result);
+					if ($rowCheck > 0) {
+						$row = mysql_fetch_array($result);
+						echo "Favorited";
+					} else {
+						echo "<button class='add-favorite-btn' >Add To My Favorites</button>";
+					}
+				}
+			?>
 		</div>
 		<div class="site-reviews">
 			<?php
@@ -80,12 +85,18 @@
 				}
 			?>
 		</div>
-		<script>
+		<script type="text/javascript">
 			$(".add-favorite-btn").click(function(event) {
 				event.preventDefault();
 				event.stopPropagation();
-				alert("Hello");
-				});			
+				var user_id = '<?php echo $_SESSION["id"]; ?>';
+				if (user_id) {
+					var site_url = '<?php echo $_GET["site_url"]; ?>';
+					$(".add-favorite").load("add_bookmark.php?email="+user_id+"&site_url="+site_url);
+				} else {
+					alert("Bye");
+				}
+			});			
 		</script>
 	</div><!-- /content -->
 
@@ -93,9 +104,9 @@
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
 				<li><a href="index.php" id="search" data-icon="custom">Search</a></li>
+				<li></li>
 				<li><a href="profile.php" id="profile" data-icon="custom">My Profile</a></li>
-				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom">Bookmarks</a></li>
-				<li><a href="login.php" id="login" data-icon="custom" >Login</a></li>
+				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom" >Bookmarks</a></li>
 			</ul>
 		</div>
 	</div> <!-- /footer -->
