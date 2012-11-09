@@ -17,18 +17,9 @@
 <body>
 	<div data-role="page">
 	<div data-role="header">
-		<a href="#" data-icon="back" data-rel="back">Back</a>
+		<a href="index.php">Back</a>
 		<h1>Chirp</h1>
-			<?php
-				if(isset($_SESSION['id'])) { 
-					$user_email = $_SESSION['id'];
-					$name = current(explode("@", $user_email));
-					echo "$first";
-					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
-					echo "$name";
-					echo "</a>";
-				}
-			?>
+		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -81,11 +72,27 @@
 			?>
 		</div>
 		<script>
+			function addFavorite(url, user) {
+				$query = "SELECT user_id, site_id from Users, Sites WHERE Sites.site_url = ".url." AND Reviews.user_name = ".user;
+				$result = mysql_query($query);
+				$rowCheck = mysql_num_rows($result);
+				alert($result);
+				while ($row = mysql_fetch_array($result)) {
+					$insert = "INSERT INTO Bookmarks values (".$row["user_id"]
+				}	
+			}
+		
+		
 			$(".add-favorite-btn").click(function(event) {
 				event.preventDefault();
 				event.stopPropagation();
-				alert("Hello");
-				});			
+				alert("hello");
+				if (isset($_SESSION["id"])) {
+					$site_url = mysql_real_escape_string($_GET["site_url"]);
+					$email = mysql_real_escape_string($_SESSION["id"]);
+					addFavorite($site_url, $email);
+				}
+			});			
 		</script>
 	</div><!-- /content -->
 
@@ -93,9 +100,9 @@
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
 				<li><a href="index.php" id="search" data-icon="custom">Search</a></li>
+				<li></li>
 				<li><a href="profile.php" id="profile" data-icon="custom">My Profile</a></li>
-				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom">Bookmarks</a></li>
-				<li><a href="login.php" id="login" data-icon="custom" >Login</a></li>
+				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom" >Bookmarks</a></li>
 			</ul>
 		</div>
 	</div> <!-- /footer -->
