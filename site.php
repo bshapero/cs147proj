@@ -71,26 +71,16 @@
 				}
 			?>
 		</div>
-		<script>
-			function addFavorite(url, user) {
-				$query = "SELECT user_id, site_id from Users, Sites WHERE Sites.site_url = ".url." AND Reviews.user_name = ".user;
-				$result = mysql_query($query);
-				$rowCheck = mysql_num_rows($result);
-				alert($result);
-				while ($row = mysql_fetch_array($result)) {
-					$insert = "INSERT INTO Bookmarks values (".$row["user_id"]
-				}	
-			}
-		
-		
+		<script type="text/javascript">
 			$(".add-favorite-btn").click(function(event) {
 				event.preventDefault();
 				event.stopPropagation();
-				alert("hello");
-				if (isset($_SESSION["id"])) {
-					$site_url = mysql_real_escape_string($_GET["site_url"]);
-					$email = mysql_real_escape_string($_SESSION["id"]);
-					addFavorite($site_url, $email);
+				var user_id = '<?php echo $_SESSION["id"]; ?>';
+				if (user_id) {
+					var site_url = '<?php echo $_GET["site_url"]; ?>';
+					$(".add-favorite").load("add_bookmark.php?email="+user_id+"&site_url="+site_url);
+				} else {
+					alert("Bye");
 				}
 			});			
 		</script>
