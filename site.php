@@ -52,7 +52,21 @@
 			?>
 		</div>
 		<div class="add-favorite">
-			<button class="add-favorite-btn">Add To My Favorites</button>
+			<?php
+				if(isset($_SESSION['id'])) {
+					$site_url = mysql_real_escape_string($_GET["site_url"]);
+					$email = $_SESSION['id'];	
+					$query = "SELECT Bookmarks.user_id, Bookmarks.site_id from Bookmarks, Users, Sites WHERE Bookmarks.site_id = Sites.site_id AND Sites.site_url = '$site_url' AND Users.user_id = Bookmarks.user_id  AND Users.email = '$email'";
+					$result = mysql_query($query);
+					$rowCheck = mysql_num_rows($result);
+					if ($rowCheck > 0) {
+						$row = mysql_fetch_array($result);
+						echo "Favorited";
+					} else {
+						echo "<button class='add-favorite-btn' >Add To My Favorites</button>";
+					}
+				}
+			?>
 		</div>
 		<div class="site-reviews">
 			<?php
