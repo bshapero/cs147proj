@@ -11,13 +11,23 @@
 <body> 
 
 	<div data-role="header">
-		<a href="index.php">Back</a>
-		<h1>Walkthrough</h1>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
+		<a href="#" data-icon="back" data-rel="back">Back</a>
+		<h1>Chirp</h1>
+			<?php
+				if(isset($_SESSION['id'])) { 
+					$user_email = $_SESSION['id'];
+					$name = current(explode("@", $user_email));
+					echo "$first";
+					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
+					echo "$name";
+					echo "</a>";
+				}
+			?>
 	</div><!-- /header -->
 	
 	<div data-role="content">
 		<div class="center">
+		<h1>Walkthrough</h1>
 		<h1>1.</h1>
 		<p>Browse different websites on the internet that have been rated by people like you</p>
 		<h1>2.</h1>
