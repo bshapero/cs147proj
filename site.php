@@ -17,9 +17,18 @@
 <body>
 	<div data-role="page">
 	<div data-role="header">
-		<a href="index.php">Back</a>
+		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<h1>Chirp</h1>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
+			<?php
+				if(isset($_SESSION['id'])) { 
+					$user_email = $_SESSION['id'];
+					$name = current(explode("@", $user_email));
+					echo "$first";
+					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
+					echo "$name";
+					echo "</a>";
+				}
+			?>
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -104,9 +113,9 @@
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
 				<li><a href="index.php" id="search" data-icon="custom">Search</a></li>
-				<li></li>
 				<li><a href="profile.php" id="profile" data-icon="custom">My Profile</a></li>
-				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom" >Bookmarks</a></li>
+				<li><a href="bookmarks.php" id="bookmarks" data-icon="custom">Bookmarks</a></li>
+				<li><a href="login.php" id="login" data-icon="custom">Login</a></li>
 			</ul>
 		</div>
 	</div> <!-- /footer -->
