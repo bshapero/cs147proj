@@ -1,3 +1,4 @@
+<?php 	session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
@@ -10,8 +11,17 @@
 	
 <body> 
 	<div data-role="header">
-		<h1>NELP!</h1>
-		<!-- Ryan: If someone is logged in write "Welcome [username]" -->
+		<h1>Chirp</h1>
+			<?php
+				if(isset($_SESSION['id'])) { 
+					$user_email = $_SESSION['id'];
+					$name = current(explode("@", $user_email));
+					echo "$first";
+					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
+					echo "$name";
+					echo "</a>";
+				}
+			?>
 	</div><!-- /header -->
 
 	<div data-role="content">	
