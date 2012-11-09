@@ -37,7 +37,6 @@
 		<h1>4.</h1>
 		<ul>
 			<li><a href="index.php"><img src="browse.gif"></img></a></li>
-			<li>or</li>
 			<li><a href="login.php"><img src="login.gif"></img></a></li>
 		</ul>
 		</div>
