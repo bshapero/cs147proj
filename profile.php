@@ -10,7 +10,7 @@
 
 	
 <body> 
-
+	<div data-role="page">
 	<div data-role="header">
 		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<h1>Chirp</h1>
@@ -35,12 +35,14 @@
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
 				if (isset($row["user_picture"])) {
-					echo "<img src=".$row["user_picture"]." width=223 height=284/>";
+					echo "<img src=".$row["user_picture"]." width=223 height=284/>\n";
 				} else {
-					echo "<img src='nophoto.png' ><br>";
+					echo "<img src='nophoto.png' ><br>\n";
 				}
-				echo "<button class=edit_profile >Edit Profile </button>";
-				echo "<p>Email: ".$row["email"]."</p>";
+				echo "<form action='edit_profile.php' method='get'>\n";
+				echo "<button class='edit_profile' type='submit' formaction='edit_profile.php' formmethod='get' >Edit Profile </button>\n";
+				echo "</form>\n";
+				echo "<p>Email: ".$row["email"]."</p>\n";
 			}
 			$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
 			$result = mysql_query($query);
@@ -48,7 +50,7 @@
 				echo "<p>Review: ".$row["written_review"]."</p> <br>";
 			}
 		} else {
-			echo "<p>In order to manage your profile, <a href='login.php'>please sign in here.</a></p>";
+			echo "<p>In order to manage your profile, <a href='login.php'>please sign in here.</a></p>\n";
 		}
 		?>
 	</div>
@@ -63,6 +65,7 @@
 			</ul>
 		</div>
 	</div>	
+	</div> <!-- /page -->
 
 </body>
 </html>
