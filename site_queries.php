@@ -20,7 +20,7 @@
 		<div class="center">
 			<?php
 				
-				$search_by_website = mysql_real_escape_string($_POST['search_by_website']);
+				$search_by_website = mysql_real_escape_string($_GET['search_by_website']);
 				$search_by_category = mysql_real_escape_string($_GET['search_by_category']);
 
 			 	if (!empty($search_by_category)) {
@@ -43,15 +43,17 @@
       			
 				} else  {
    					
-   					 $result2   = mysql_query("select * from Sites where site_url='$search_by_website'");
-  					 $rowCheck2 = mysql_num_rows($result2);
-  					 if ($rowCheck2 == 0 && !empty($search_by_website)) {
-  					 echo "No exact match...Would you like to <a href='add_website.php?url=$search_by_website'>add this website here: \"$search_by_website\"?</a>";	
-  					 }
+   					echo "Can't find what you're looking for? Try <a href='add_website.php'>adding a new website here</a> :)";	
+					
+					$queryDelims = array(" ", "www.", "https://", "http://");
+   					$modifiedQuery = str_replace($queryDelims,"",strtolower($search_by_website));
+   					$prefix = "http://www.";
+   					$modifiedQuery = $prefix . $modifiedQuery;
    					
    					
-   					 echo "<h1>Results: </h1>";
-   					 $result   = mysql_query("select * from Sites where site_url like '%$search_by_website%' order by category, site_url");
+   					
+   					 echo "<h1>Search results for $modifiedQuery: </h1>";
+   					 $result   = mysql_query("select * from Sites where site_url like '%$modifiedQuery%'");
    					 $rowCheck = mysql_num_rows($result);
   					 if ($rowCheck > 0) {
       				  while ($row = mysql_fetch_array($result)) {
