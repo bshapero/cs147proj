@@ -27,6 +27,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
+	<div id="profile-area">
 	<h1>My Profile: </h1>
 		<?php
 		if(isset($_SESSION['id'])) {
@@ -44,17 +45,38 @@
 				echo "</form>\n";
 				echo "<p>Email: ".$row["email"]."</p>\n";
 			}
-			$query = "SELECT written_review FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
+			$query = "SELECT * FROM Users, Reviews WHERE Reviews.user_name = '$user' AND Users.email = '$user'";
 			$result = mysql_query($query);
+			echo "<b>My Reviews: </b><br>";
 			while ($row = mysql_fetch_assoc($result)) {
-				echo "<p>Review: ".$row["written_review"]."</p> <br>";
+				$site_id = $row["site_id"];
+				$q1 = "SELECT * FROM Sites WHERE site_id = '$site_id'";
+				$r1 = mysql_query($q1);
+				$site_data = mysql_fetch_array($r1);
+				echo "<div class='my-review' >";
+				echo "Review for: <a href=site.php?site_url=".$site_data["site_url"]." >".$site_data["site_url"]."</a><br>";
+				echo "Posted at: ".date($row["date_created"])."<br>";
+				echo "Rating: ".$row["star_rating"]."<br>";
+				echo "Comment: ".$row["written_review"]."<br>";
+				echo "Likes: ".$row["num_likes"]."<br>";
+				echo "</div><br>";
 			}
 		} else {
 			echo "<p>In order to manage your profile, <a href='login.php'>please sign in here.</a></p>\n";
 		}
 		?>
 	</div>
-
+	</div>
+	
+	<script>
+	$(".edit_profile").click(function(event) {
+		event.preventDefault();
+		//event.stopPropagation();
+		var email = '<?php echo $_SESSION["id"]; ?>';
+		$("#profile-area").load("edit_profile.php", { old_mail: email });
+	});
+	
+	</script>
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
@@ -66,6 +88,9 @@
 		</div>
 	</div>	
 	</div> <!-- /page -->
+	
+	
+	
 
 </body>
 </html>
