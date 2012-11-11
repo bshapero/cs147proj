@@ -11,17 +11,9 @@
 	
 <body> 
 	<div data-role="header">
-		<h1>Chirp</h1>
-			<?php
-				if(isset($_SESSION['id'])) { 
-					$user_email = $_SESSION['id'];
-					$name = current(explode("@", $user_email));
-					echo "$first";
-					echo "<a href=\"profile.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
-					echo "$name";
-					echo "</a>";
-				}
-			?>
+		<?php
+			include("top_bar.php");
+		?>
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -33,10 +25,9 @@ Success!!
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
-				<li><a href="index.php" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
-				<li></li>
-				<li></li>
-				<li><a href="login.php" id="login" data-icon="custom">Login</a></li>
+				<?php
+					include("bottom_bar.php");
+				?>
 			</ul>
 		</div>
 	</div>
