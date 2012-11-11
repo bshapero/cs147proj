@@ -34,10 +34,8 @@
 		<div data-role="fieldcontain">
 	     <label for="foo">Website URL:</label>
 	     <?php
-	     $url = mysql_real_escape_string($_GET['url']);
-	     echo "<input type='text' name='url' value='$url' />";
+	     echo "<input type='text' name='url' value='http://' />";
 	     ?>
-	    <br/>Example: http://www.google.com/
 	     
 		</div>
 		<label>Category:</label>

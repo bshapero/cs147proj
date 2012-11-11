@@ -1,11 +1,13 @@
-<?php 	session_start(); ?>
+<?php 	session_start();
+
+	include("header.php");
+	include("config.php");
+
+ ?>
 <!DOCTYPE html> 
 <html>
 <head>
-	<?php
-	include("header.php");
-	include("config.php");
-	?>
+	
 </head> 
 
 	
