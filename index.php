@@ -46,7 +46,11 @@
 					include("bottom_bar.php");
 				?>
 				<script>
+<<<<<<< HEAD
 					$('.search_btm_nav').attr('class', 'search_btm_nav ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a ui-btn-active');
+=======
+					$('#search').attr('class', 'ui-btn-active');
+>>>>>>> eef6ffd47ecfe4466f6c20d5e9fc16f79d21f97c
 				</script>
 			</ul>
 		</div>

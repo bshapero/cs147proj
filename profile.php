@@ -19,6 +19,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
+
 	<div id="profile-area">
 	<h1>My Profile: </h1>
 		<?php
@@ -72,13 +73,12 @@
 			</ul>
 		</div>
 	</div>	
-	
 	<script>
 	$(".edit_profile").click(function(event) {
 		event.preventDefault();
 		//event.stopPropagation();
 		var email = '<?php echo $_SESSION["id"]; ?>';
-		$("#profile-area").load("edit_profile.php?", { old_mail: email });
+		$("#profile-area").load("edit_profile.php?", { old_email:email });
 	});
 	
 	</script>

@@ -1,4 +1,5 @@
 <h1>Chirp</h1>
+<<<<<<< HEAD
 <?php
 	if(isset($_SESSION['id'])) { 
 		$user_email = $_SESSION['id'];
