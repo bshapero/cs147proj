@@ -68,15 +68,6 @@
 	</div>
 	</div>
 	
-	<script>
-	$(".edit_profile").click(function(event) {
-		event.preventDefault();
-		//event.stopPropagation();
-		var email = '<?php echo $_SESSION["id"]; ?>';
-		$("#profile-area").load("edit_profile.php", { old_mail: email });
-	});
-	
-	</script>
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
@@ -87,6 +78,16 @@
 			</ul>
 		</div>
 	</div>	
+	
+	<script>
+	$(".edit_profile").click(function(event) {
+		event.preventDefault();
+		//event.stopPropagation();
+		var email = '<?php echo $_SESSION["id"]; ?>';
+		$("#profile-area").load("edit_profile.php?", { old_mail: email });
+	});
+	
+	</script>
 	</div> <!-- /page -->
 	
 	
