@@ -9,7 +9,7 @@
 		$site = mysql_real_escape_string($_POST["site"]);
 		$t = date("Y-m-d H:i:s", time());
 
-		$q1 = "SELECT * FROM Reviews WHERE user_name = '$email'";
+		$q1 = "SELECT * FROM Reviews, Sites WHERE user_name = '$email' AND site_url = '$site'";
 		$r1 = mysql_query($q1);
 		$rowCheck = mysql_num_rows($r1);
 		if ($rowCheck > 0) {
