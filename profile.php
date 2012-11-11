@@ -34,7 +34,7 @@
 					echo "<img src='nophoto.png' ><br>\n";
 				}
 				echo "<form action='edit_profile.php' method='get'>\n";
-				echo "<button class='edit_profile' type='submit' formaction='edit_profile.php' formmethod='get' >Edit Profile </button>\n";
+				echo "<button class='edit_profile' type='submit' formaction='edit_profile.php' formmethod='get' >Change Password</button>\n";
 				echo "</form>\n";
 				echo "<p>Email: ".$row["email"]."</p>\n";
 			}
