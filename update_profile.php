@@ -14,8 +14,14 @@
 	include("config.php");
 	$old_email = mysql_real_escape_string($_SESSION['id']);
 	$new_email = mysql_real_escape_string($_POST["email"]);
-	$query = "UPDATE Users Set Users.email = '$new_email' WHERE Users.email = '$old_email'";
+	$old_password = md5(mysql_real_escape_string($_POST["old_password"]));
+	$new_password = md5(mysql_real_escape_string($_POST["new_password"]));
+	$new_pic = mysql_real_escape_string($_POST["pic"]);
+	$query = "UPDATE Users Set Users.email = '$new_email', pswd = '$new_password' WHERE Users.email = '$old_email' AND pswd = '$old_password'";
 	$result = mysql_query($query);
+	if (!$result) {
+		echo mysql_error();	
+	}
 	$_SESSION['id'] = $new_email;
 
 	header("Location: ./profile.php");
