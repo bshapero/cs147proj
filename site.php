@@ -105,6 +105,9 @@
 		<form action="add_review.php" method="post" id="add_review">
 		
 			<div data-role="fieldcontain">
+			<input type="hidden" name="site" value='<?php echo $site_url; ?>' />
+			</div>
+			<div data-role="fieldcontain">
 			<label for="slider">Stars:</label>
 			<input type="range" name="slider" id="slider" value="0" min="0" max="5" />
 		    </div>
@@ -127,7 +130,8 @@
 	          					  event.stopPropagation();
 	          					  $.post("add_review.php", $("#add_review").serialize(),
 	          					  function(data) {
-	          					  	$("#result").html(data);
+	          					  	alert(data);
+	          					  	location.reload(true);
 	          					  });	
 	              });
 			</script>

@@ -19,12 +19,11 @@
 			$q3 = "UPDATE Sites SET sum_score = sum_score - '$oldscore' + '$rating' WHERE site_url = '$site'";
 			$r2 = mysql_query($q2);
 			$r3 = mysql_query($q3);
-			echo "<p>Updated your review.</p>";
+			echo "Updated your review.";
 		} else {
 			$t = date("Y-m-d H:i:s", time());
 			$q = "select MAX(review_id) AS max from Reviews";
 	    	$id = mysql_fetch_assoc(mysql_query($q));
-	    	//echo $id["max"];
 	    	$id1 = $id["max"] + 1;
 			$query = "SELECT * FROM Sites WHERE site_url = '$site'";
 			$result = mysql_query($query);
@@ -35,7 +34,7 @@
 				$result2 = mysql_query($query2);
 				$query3 = "UPDATE Sites SET sum_score = '$sum_score', num_reviews = num_reviews + 1 WHERE site_url = '$site'";
 				$result3 = mysql_query($query3);
-				echo "  Added your review.";
+				echo "Added your review.";
 			}
 		}
 	} else {
