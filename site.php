@@ -72,11 +72,13 @@
 		<div class="site-reviews">
 			<?php
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
-				$query = "SELECT * FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id ORDER BY date_created";
-				$result = $result = mysql_query($query);
+				$query = "SELECT * FROM Sites, Reviews where Sites.site_url = '$site_url' 
+				AND Reviews.site_id = Sites.site_id ORDER BY date_created";
+		
+				$result = mysql_query($query);
 				while ($row = mysql_fetch_array($result)) {
 					echo "<div class='site-review' >";
-					echo "<button class='like-review-btn'>Like</button>";
+					echo "<button class='like-review-btn' id=".$row["review_id"]." > Like</button>";
 					echo $row["user_name"].": <br>";
 					echo date($row["date_created"])."<br>";
 					echo "Rating: ".$row["star_rating"]."<br>";
@@ -86,6 +88,25 @@
 				}
 			?>
 		</div>
+		
+	
+		
+			<script>
+			$(".like-review-btn").click(function(event) {
+				event.preventDefault();
+				var review_id = this.id;
+				var email = '<?php echo $_SESSION["id"]; ?>';	
+				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
+					alert(data);
+					this.val("Liked");
+					//getElementByID(2).innerhtml="Sucka ma dicka";
+					});
+				//event.stopPropagation();
+			
+			});
+			</script>
+			
+			
 		<script type="text/javascript">
 			$(".add-favorite-btn").click(function(event) {
 				event.preventDefault();

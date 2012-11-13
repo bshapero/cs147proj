@@ -47,10 +47,7 @@
 					
 					$queryDelims = array(" ", "www.", "https://", "http://");
    					$modifiedQuery = str_replace($queryDelims,"",strtolower($search_by_website));
-   					$prefix = "http://www.";
-   					$modifiedQuery = $prefix . $modifiedQuery;
-   					
-   					
+   					$modifiedQuery = $modifiedQuery;
    					
    					 echo "<h1>Search results for $modifiedQuery: </h1>";
    					 $result   = mysql_query("select * from Sites where site_url like '%$modifiedQuery%'");
