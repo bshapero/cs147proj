@@ -149,7 +149,7 @@
 	          					  event.stopPropagation();
 	          					  $.post("add_review.php", $("#add_review").serialize(),
 	          					  function(data) {
-	          					  	alert(data);
+	          					  	//alert(data);
 	          					  	location.reload(true);
 	          					  });	
 	              });
