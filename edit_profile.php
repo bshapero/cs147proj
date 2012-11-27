@@ -6,7 +6,7 @@
 	$result = mysql_query($query);
 	$row = mysql_fetch_assoc($result);
 ?>
-    <script src="js/upload_script.js"></script>
+    <script src='js/upload_script.js'></script>
     <style>
     #fileinfo,#error,#error2,#abort,#warnsize {
 	    color:#aaa;
@@ -48,18 +48,6 @@
                     <div id="abort">The upload has been canceled by the user or the browser dropped the connection</div>
                     <div id="warnsize">Your file is very big. We can't accept it. Please select more small file</div>
 
-                    <div id="progress_info">
-                        <div id="progress"></div>
-                        <div id="progress_percent">&nbsp;</div>
-                        <div class="clear_both"></div>
-                        <div>
-                            <div id="speed">&nbsp;</div>
-                            <div id="remaining">&nbsp;</div>
-                            <div id="b_transfered">&nbsp;</div>
-                            <div class="clear_both"></div>
-                        </div>
-                        <div id="upload_response"></div>
-                    </div>
                 </form>
 
                 <img id="preview" />
