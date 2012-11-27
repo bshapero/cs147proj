@@ -58,9 +58,11 @@ function fileSelected() {
         oReader.onload = function(e){
 
         // e.target.result contains the DataURL which we will use as a source of the image
+		oImage.width = "223";
+		oImage.height = "284"; 
         oImage.src = e.target.result;
 
-        oImage.onload = function () { // binding onload event
+        /*oImage.onload = function () { // binding onload event
 
             // we are going to display some custom image information here
             sResultFileSize = bytesToSize(oFile.size);
@@ -69,7 +71,7 @@ function fileSelected() {
             document.getElementById('filesize').innerHTML = 'Size: ' + sResultFileSize;
             document.getElementById('filetype').innerHTML = 'Type: ' + oFile.type;
             document.getElementById('filedim').innerHTML = 'Dimension: ' + oImage.naturalWidth + ' x ' + oImage.naturalHeight;
-        };
+        };*/
     };
 
     // read selected file as DataURL
