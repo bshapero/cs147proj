@@ -19,7 +19,7 @@
 	<h2>Edit Profile</h2>
 	<?php
 		if (isset($row["user_picture"])) {
-			echo "<img src=".$row["user_picture"]." width=223 height=284 />\n";
+			echo "<img src=profile_pics/".$row["user_picture"]." width=223 height=284 />\n";
 		} else {
 			echo "<img src='nophoto.png' /><br>\n";
 		}
