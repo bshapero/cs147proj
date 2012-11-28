@@ -89,7 +89,16 @@
 					} else {
 					echo "<button class='like-review-btn' id=".$row['review_id']." >Like</button>";
 					}
-					echo "<div class=reviewer id=reviewer-".$row['review_id']." >".$row["user_name"]."</div>";
+					$q2 = "SELECT * FROM Users where email = '".mysql_real_escape_string($row['user_name'])."'";
+					$r2 = mysql_query($q2);
+					$row2 = mysql_fetch_array($r2);
+					echo "<div class=reviewer id=reviewer-".$row['review_id']." >";
+					if ($row2['user_picture'] != NULL) { 
+						echo "<img width=128 height=128 src=profile_pics/".$row2['user_picture']." />";
+					} else {
+						echo "<img width=128 height=128 src=nophoto.png />";
+					}
+					echo $row["user_name"]."</div>";
 					echo "<div class=review-time id=review-time-".$row['review_id']." >".date($row["date_created"])."</div>";
 					echo "<div class=review-rating id=review-rating-".$row['review_id']." >Rating: ".$row["star_rating"]."</div>";
 					echo "<div class=review-comment id=review-comment-".$row['review_id']." >Comment: ".$row["written_review"]."</div>";
@@ -106,6 +115,10 @@
 				event.preventDefault();
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
+				if (!email) {
+					alert("Please login");
+					return;
+				}
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
 					//alert(data + " liked!");
 					$("button#"+review_id).removeClass("like-review-btn").addClass("unlike-review-btn");
@@ -137,7 +150,7 @@
 					var site_url = '<?php echo $_GET["site_url"]; ?>';
 					$(".add-favorite").load("add_bookmark.php?email="+user_id+"&site_url="+site_url);
 				} else {
-					alert("Bye");
+					alert("Please login");
 				}
 			});			
 		</script>

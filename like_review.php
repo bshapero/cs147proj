@@ -2,7 +2,9 @@
 
 session_start();
 include("config.php");
-
+if (!isset($_SESSION['id'])) {
+	header("Location: login.php");	
+}
 $email = mysql_real_escape_string($_POST["email"]);
 $review_id = mysql_real_escape_string($_POST["review_id"]);
 echo "email: " . $email . " review_id: " . $review_id."\n";
