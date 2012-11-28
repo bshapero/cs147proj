@@ -9,9 +9,10 @@
 		$site = mysql_real_escape_string($_POST["site"]);
 		$t = date("Y-m-d H:i:s", time());
 
-		$q1 = "SELECT * FROM Reviews, Sites WHERE user_name = '$email' AND site_url = '$site'";
+		$q1 = "SELECT * FROM Reviews, Sites WHERE user_name = '$email' AND site_url = '$site' AND Sites.site_id = Reviews.site_id AND Reviews.user_name = '$email'";
 		$r1 = mysql_query($q1);
 		$rowCheck = mysql_num_rows($r1);
+		echo $rowCheck;
 		if ($rowCheck > 0) {
 			$review = mysql_fetch_assoc($r1);
 			$oldscore = $review['star_rating'];
@@ -21,6 +22,7 @@
 			$r3 = mysql_query($q3);
 			echo "Updated your review.";
 		} else {
+			echo 'No review before';
 			$t = date("Y-m-d H:i:s", time());
 			$q = "select MAX(review_id) AS max from Reviews";
 	    	$id = mysql_fetch_assoc(mysql_query($q));

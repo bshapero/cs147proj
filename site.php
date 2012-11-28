@@ -11,6 +11,9 @@
 	<?php
 	include("header.php");
 	include("config.php");
+	if(isset($_SESSION['id'])) {
+		$email = $_SESSION['id'];
+	}
 	?>
 </head> 
 
@@ -150,7 +153,7 @@
 	          					  $.post("add_review.php", $("#add_review").serialize(),
 	          					  function(data) {
 	          					  	//alert(data);
-	          					  	location.reload(true);
+	          					  	window.location.reload(true);
 	          					  });	
 	              });
 			</script>
