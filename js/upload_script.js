@@ -147,6 +147,9 @@ function uploadProgress(e) { // upload process in progress
 }
 
 function uploadFinish(e) { // upload successfully finished
+	window.location.href="profile.php";
+
+
     var oUploadResponse = document.getElementById('upload_response');
     oUploadResponse.innerHTML = e.target.responseText;
     oUploadResponse.style.display = 'block';
@@ -155,8 +158,8 @@ function uploadFinish(e) { // upload successfully finished
     document.getElementById('progress').style.width = '400px';
     document.getElementById('filesize').innerHTML = sResultFileSize;
     document.getElementById('remaining').innerHTML = '| 00:00:00';
-
     clearInterval(oTimer);
+
 }
 
 function uploadError(e) { // upload error

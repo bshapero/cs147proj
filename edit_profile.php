@@ -49,7 +49,7 @@
                         <div><input type="file" name="image_file" id="image_file" onchange="fileSelected();" /></div>
                     </div>
                     <div>
-                    <input type="button" value="Upload" class="ui-btn-inner ui-btn ui-shadow ui-btn-corner-all ui-submit ui-btn-up-c" onclick="startUploading()" />
+                    <input type="button" value="Save Picture Changes" class="ui-btn-inner ui-btn ui-shadow ui-btn-corner-all ui-submit ui-btn-up-c" onclick="startUploading()" />
                     </div>
                     <div id="fileinfo">
                         <div id="filename"></div>
