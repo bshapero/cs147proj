@@ -82,18 +82,18 @@
 					$review_id = $row["review_id"];
 					$q1 = "SELECT * FROM Likes, Users where Users.email = '$email' AND Likes.user_id = Users.user_id AND review_id = '$review_id'";
 					$r1 = mysql_query($q1);
-					echo "<div class='site-review' >";
+					echo "<div class=site-review >";
 					$rowCheck = mysql_num_rows($r1);
 					if ($rowCheck > 0) {
-					echo "<button class='unlike-review-btn' id=".$row["review_id"]." >Unlike</button>";
+					echo "<button class='unlike-review-btn' id=".$row['review_id']." >Unlike</button>";
 					} else {
-					echo "<button class='like-review-btn' id=".$row["review_id"]." >Like</button>";
+					echo "<button class='like-review-btn' id=".$row['review_id']." >Like</button>";
 					}
-					echo $row["user_name"].": <br>";
-					echo date($row["date_created"])."<br>";
-					echo "Rating: ".$row["star_rating"]."<br>";
-					echo "Comment: ".$row["written_review"]."<br>";
-					echo "Likes: ".$row["num_likes"]."<br>";
+					echo "<div class=reviewer >".$row["user_name"]."</div>";
+					echo "<div class=review-time >".date($row["date_created"])."</div>";
+					echo "<div class=review-rating >Rating: ".$row["star_rating"]."</div>";
+					echo "<div class=review-comment >Comment: ".$row["written_review"]."</div>";
+					echo "<div class=review-likes >Likes: ".$row["num_likes"]."</div>";
 					echo "</div><br>";
 				}
 			?>
@@ -102,20 +102,33 @@
 	
 		
 			<script>
-			$(".like-review-btn").click(function(event) {
+			$(".like-review-btn").live("click", function(event) {
 				event.preventDefault();
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
-					//alert(data);
-					$("button#"+review_id).html("Liked");
+					alert(data + " liked!");
+					$("button#"+review_id).removeClass("like-review-btn").addClass("unlike-review-btn");
+					$("button#"+review_id).html("Unlike");
+					$("button#"+review_id).button("refresh");
+					//$(".review-likes").
+					});
+			});
+			$(".unlike-review-btn").live("click", function(event) {
+				event.preventDefault();
+				var review_id = this.id;
+				var email = '<?php echo $_SESSION["id"]; ?>';	
+				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
+					alert(data + " unliked!");
+					$("button#"+review_id).removeClass("unlike-review-btn").addClass("like-review-btn");
+					$("button#"+review_id).html("Like");
 					$("button#"+review_id).button("refresh");
 					});
 			});
 			</script>
 			
 			
-		<script type="text/javascript">
+		<script>
 			$(".add-favorite-btn").click(function(event) {
 				event.preventDefault();
 				event.stopPropagation();
