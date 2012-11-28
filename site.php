@@ -89,11 +89,11 @@
 					} else {
 					echo "<button class='like-review-btn' id=".$row['review_id']." >Like</button>";
 					}
-					echo "<div class=reviewer >".$row["user_name"]."</div>";
-					echo "<div class=review-time >".date($row["date_created"])."</div>";
-					echo "<div class=review-rating >Rating: ".$row["star_rating"]."</div>";
-					echo "<div class=review-comment >Comment: ".$row["written_review"]."</div>";
-					echo "<div class=review-likes >Likes: ".$row["num_likes"]."</div>";
+					echo "<div class=reviewer id=reviewer-".$row['review_id']." >".$row["user_name"]."</div>";
+					echo "<div class=review-time id=review-time-".$row['review_id']." >".date($row["date_created"])."</div>";
+					echo "<div class=review-rating id=review-rating-".$row['review_id']." >Rating: ".$row["star_rating"]."</div>";
+					echo "<div class=review-comment id=review-comment-".$row['review_id']." >Comment: ".$row["written_review"]."</div>";
+					echo "<div class=review-likes id=review-likes-".$row['review_id']." >Likes: ".$row["num_likes"]."</div>";
 					echo "</div><br>";
 				}
 			?>
@@ -107,22 +107,22 @@
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
-					alert(data + " liked!");
+					//alert(data + " liked!");
 					$("button#"+review_id).removeClass("like-review-btn").addClass("unlike-review-btn");
 					$("button#"+review_id).html("Unlike");
 					$("button#"+review_id).button("refresh");
-					//$(".review-likes").
-					});
+					$("#review-likes-"+review_id).load("review.php #num_likes", {review_id : review_id});				});
 			});
 			$(".unlike-review-btn").live("click", function(event) {
 				event.preventDefault();
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
-					alert(data + " unliked!");
+					//alert(data + " unliked!");
 					$("button#"+review_id).removeClass("unlike-review-btn").addClass("like-review-btn");
 					$("button#"+review_id).html("Like");
 					$("button#"+review_id).button("refresh");
+					$("#review-likes-"+review_id).load("review.php #num_likes", {review_id : review_id});
 					});
 			});
 			</script>
