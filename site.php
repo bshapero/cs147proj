@@ -75,13 +75,20 @@
 		<div class="site-reviews">
 			<?php
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
-				$query = "SELECT * FROM Sites, Reviews where Sites.site_url = '$site_url' 
-				AND Reviews.site_id = Sites.site_id ORDER BY date_created";
+				$query = "SELECT * FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id ORDER BY date_created";
 		
 				$result = mysql_query($query);
 				while ($row = mysql_fetch_array($result)) {
+					$review_id = $row["review_id"];
+					$q1 = "SELECT * FROM Likes, Users where Users.email = '$email' AND Likes.user_id = Users.user_id AND review_id = '$review_id'";
+					$r1 = mysql_query($q1);
 					echo "<div class='site-review' >";
+					$rowCheck = mysql_num_rows($r1);
+					if ($rowCheck > 0) {
+					echo "<button class='unlike-review-btn' id=".$row["review_id"]." >Unlike</button>";
+					} else {
 					echo "<button class='like-review-btn' id=".$row["review_id"]." >Like</button>";
+					}
 					echo $row["user_name"].": <br>";
 					echo date($row["date_created"])."<br>";
 					echo "Rating: ".$row["star_rating"]."<br>";
