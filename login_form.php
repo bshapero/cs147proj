@@ -22,7 +22,7 @@
 	<div class = "center"> or </div>
 	
 	
-	<div class="form">
+	<div class="form" data-ajax='false'>
 		<form action="create_profile.php" method="post" id="login2">
 																		
 			<input type="submit" id = "submit2" value="Create New Profile"/>

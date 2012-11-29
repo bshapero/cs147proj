@@ -101,7 +101,7 @@
 					echo $row["user_name"]."</div>";
 					echo "<div class=review-time id=review-time-".$row['review_id']." >".date($row["date_created"])."</div>";
 					echo "<div class=review-rating id=review-rating-".$row['review_id']." >Rating: ".$row["star_rating"]."</div>";
-					echo "<div class=review-comment id=review-comment-".$row['review_id']." >Comment: ".$row["written_review"]."</div>";
+					echo "<div class=review-comment id=review-comment-".$row['review_id']." >Comment: ".stripslashes($row["written_review"])."</div>";
 					echo "<div class=review-likes id=review-likes-".$row['review_id']." >Likes: ".$row["num_likes"]."</div>";
 					echo "</div><br>";
 				}
@@ -157,7 +157,7 @@
 		
 		<h1 class="center">Review this website</h1>
 		
-		<form action="add_review.php" method="post" id="add_review">
+		<form action="add_review.php" data-ajax='false' method="post" id="add_review">
 		
 			<div data-role="fieldcontain">
 			<input type="hidden" name="site" value='<?php echo $site_url; ?>' />
