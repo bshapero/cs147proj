@@ -10,6 +10,7 @@
 
 	
 <body> 
+	<div data-role="page">
 	<style type="text/css">
 		#popupPanel-popup {
 	    right: 0 !important;
@@ -60,8 +61,8 @@
 			
 		</div>
 		<script type="text/javascript">	
+		//$(document).unbind('pageshow');
 		
-		$(document).unbind('pageshow');
 		$(document).bind('pageshow', function(event){ 
 			$("#popupPanel").popup({history: false});
 			
@@ -103,7 +104,7 @@
 			</ul>
 		</div>
 	</div>
-	
+	</div><!-- /page -->
 
 
 </body>
