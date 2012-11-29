@@ -31,12 +31,12 @@
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
 				if (isset($row["user_picture"])) {
-					echo "<img src=".$row["user_picture"]." width=223 height=284/>\n";
+					echo "<img src=profile_pics/".$row["user_picture"]." width=223 height=284/>\n";
 				} else {
 					echo "<img src='nophoto.png' ><br>\n";
 				}
 				echo "<form action='edit_profile.php' method='get'>\n";
-				echo "<button class='edit_profile' type='submit' formaction='edit_profile.php' formmethod='get' >Change Password</button>\n";
+				echo "<button class='edit_profile' type='submit' formaction='edit_profile.php' formmethod='get' >Change Password or Profile Picture</button>\n";
 				echo "</form>\n";
 				echo "<p>Email: ".$row["email"]."</p>\n";
 			}
