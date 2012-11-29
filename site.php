@@ -181,13 +181,18 @@
 
 			<script type="text/javascript">
 				$("#add_review").submit(function() {
-	          					  event.preventDefault();
-	          					  event.stopPropagation();
-	          					  $.post("add_review.php", $("#add_review").serialize(),
-	          					  function(data) {
-	          					  	//alert(data);
-	          					  	window.location.reload(true);
-	          					  });	
+          					  event.preventDefault();
+          					  event.stopPropagation();
+          					  var user_id = '<?php echo $_SESSION["id"]; ?>';
+							  if (!user_id) {
+							  	alert("Please login");
+							  	return;
+							  }
+          					  $.post("add_review.php", $("#add_review").serialize(), 
+          					  function(data) {
+          					  	//alert(data);
+          					  	window.location.reload();
+          					  });	
 	              });
 			</script>
 		
