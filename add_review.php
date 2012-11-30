@@ -11,6 +11,7 @@
 
 		$q1 = "SELECT * FROM Reviews, Sites WHERE user_name = '$email' AND site_url = '$site' AND Sites.site_id = Reviews.site_id AND Reviews.user_name = '$email'";
 		$r1 = mysql_query($q1);
+		echo $q1."\n";
 		$rowCheck = mysql_num_rows($r1);
 		echo "$rowCheck";
 		if ($rowCheck > 0) {
