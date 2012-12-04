@@ -65,23 +65,30 @@
 			
 		</div>
 		<script type="text/javascript">	
-		//$(document).unbind('pageshow');
-		
-		$(document).bind('pageshow', function(event){ 
-			$("#popupPanel").popup({history: false});
+		if (!sessionStorage.popup) {
 			
-			$( "#popupPanel" ).on({
-		    popupbeforeposition: function() {
-		        var h = $( window ).height();
-		        var w = $( window ).width();
-		
-		        $( "#popupPanel" ).css( "height", 3 * h / 4 );
-		        $( "#popupPanel" ).css( "width", w );
-		        
-		    }
+			//$(document).unbind('pageshow');
+			
+			$(document).bind('pageshow', function(event){ 
+				$("#popupPanel").popup({history: false});
+				
+				$( "#popupPanel" ).on({
+			    popupbeforeposition: function() {
+			        var h = $( window ).height();
+			        var w = $( window ).width();
+			
+			        $( "#popupPanel" ).css( "height", 3 * h / 4 );
+			        $( "#popupPanel" ).css( "width", w );
+			        
+			    }
+				});
+				$("#popupPanel").popup("open");
+				sessionStorage.popup = 1;
 			});
-			$("#popupPanel").popup("open");
-		});
+		} else {
+			$(document).bind('pageshow', function(event) {
+			});
+		}
 		</script> 
 	</div><!-- /content -->
 	<div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
