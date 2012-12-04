@@ -25,3 +25,4 @@ ul {
 		.profile_btm_nav .ui-icon { background:  url(111-user.png) 50% 50% no-repeat; background-size: 24px 24px;  }
 		.bookmarks_btm_nav .ui-icon { background:  url(29-heart.png) 50% 50% no-repeat;  background-size: 24px 24px; }
         .about_btm_nav .ui-icon { background:  url(63-runner.png) 50% 50% no-repeat;  background-size: 24px 24px; }
+        .login_top_nav .ui-icon { background:  url(gear.png) 50% 50% no-repeat;  background-size: 17px 17px; }

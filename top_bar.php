@@ -4,11 +4,11 @@
 		$user_email = $_SESSION['id'];
 		$name = current(explode("@", $user_email));
 		echo "$first";
-		echo "<a href=\"login.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
+		echo "<a href='login.php' data-icon='custom' class='login_top_nav ui-btn-right'>";
 		echo "$name";
 		echo "</a>";
 	} else {
-		echo "<a href=\"login.php\" data-icon=\"gear\" class=\"ui-btn-right\">";
+		echo "<a href='login.php' data-icon='custom' class='login_top_nav ui-btn-right'>";
 		echo "Login";
 		echo "</a>";
 	}
