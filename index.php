@@ -77,7 +77,7 @@
 			        var h = $( window ).height();
 			        var w = $( window ).width();
 			
-			        $( "#popupPanel" ).css( "height", 3 * h / 4 );
+			        $( "#popupPanel" ).css( "height", 3 * h / 5 );
 			        $( "#popupPanel" ).css( "width", w );
 			        
 			    }

@@ -1,4 +1,4 @@
-<?php 	session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html> 
 <html>
 
@@ -12,8 +12,8 @@
 <body> 
 
 	<div data-role="header">
+		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<?php
-			include("back_button_bar.php");
 			include("top_bar.php");
 		?>
 	</div><!-- /header -->
@@ -21,12 +21,19 @@
 	<div data-role="content">
 		<div class="center">
 		<h1>Walkthrough</h1>
+		<p>Have you ever wondered what popular websites other people are using to satisfy their web surfing needs? Chirp is a web app designed to fulfill just that need. Come on in and take a look at what other people are checking out!</p>
 		<h1>1.</h1>
-		<p>Browse different websites on the internet that have been rated by people like you</p>
+		<p>Go to the search page and either type in a website you are interested, or search websites by category.</p>
+		<div style="border:1px solid black">
+		<img src="about1.png"></img>
+		</div>
 		<h1>2.</h1>
-		<p>Like websites that you have found so you can come back and explore them later</p>
+		<p>'Like' websites</p>
 		<h1>3.</h1>
-		<p>Login to comment and rate websites yourself!</p>
+		<p>Comment on and rate websites yourself!</p>
+		<div style="border:1px solid black">
+		<img src="about2.png"></img>
+		</div>
 		<h1>4.</h1>
 		<ul>
 			<li><a href="index.php"><img src="browse.gif"></img></a></li>
