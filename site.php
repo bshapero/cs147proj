@@ -98,7 +98,7 @@
 					} else {
 						echo "<img width=128 height=128 src=nophoto.png />";
 					}
-					echo $row["user_name"]."</div>";
+					echo "<div class=review-time id=review-time-".$row['review_id']." >".$row["user_name"]."</div>";
 					echo "<div class=review-time id=review-time-".$row['review_id']." >".date($row["date_created"])."</div>";
 					echo "<div class=review-rating id=review-rating-".$row['review_id']." >Rating: ".$row["star_rating"]."</div>";
 					echo "<div class=review-comment id=review-comment-".$row['review_id']." >Comment: ".stripslashes($row["written_review"])."</div>";

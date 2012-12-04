@@ -32,6 +32,10 @@
 		#popupPanel .ui-btn {
 		    margin: 2em 15px;
 		}
+		#about-arrow {
+			padding-left: 70%;
+			text-align: right;
+		}
 	</style>
 	<div data-role="header">
 		<?php
@@ -88,7 +92,7 @@
 		<p>Welcome to Chirp!</p>
 		<p>New User?</p>
 		<p>Click the about page to get started</p>
-		<img src="dwnarrow.png" style="right:0"/>
+		<img src="dwnarrow.png" id="about-arrow" />
 		</div>
 	</div>
 	
