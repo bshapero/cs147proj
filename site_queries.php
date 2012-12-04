@@ -10,8 +10,8 @@
 </head> 
 <body> 
 	<div data-role="header">
-		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<?php
+			include("back_button_bar.php");
 			include("top_bar.php");
 		?>
 	</div><!-- /header -->
