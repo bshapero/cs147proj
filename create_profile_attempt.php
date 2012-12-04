@@ -21,11 +21,11 @@ $password = md5(mysql_real_escape_string($_POST['password']));
 
 
 if (!isset($email) || !isset($password)) {
-    header("Location: ./login_attempt_failure.php");
+    header("Location: ./create_profile_attempt_failure.php");
 }
 
 else if (empty($email) || empty($password)) {
-    header("Location: ./login_attempt_failure.php");
+    header("Location: ./create_profile_attempt_failure.php");
     
 } else {
 
@@ -44,7 +44,7 @@ else if (empty($email) || empty($password)) {
   	  header("Location: ./index.php");
     
 	} else {
-		header("Location: ./login_attempt_failure.php");
+		header("Location: ./create_profile_failure.php");
 	}
 
 }
