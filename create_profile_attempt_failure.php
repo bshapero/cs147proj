@@ -19,7 +19,7 @@
 
 	<div data-role="content">	
 	<h1>Oops! </h1>
-	This username-password combination doesn't exist! <a href='login.php'> Please try again.</a>
+	This username-password combination already exists! <a href='create_profile.php'> Please try again.</a>
 
     </div>
 
