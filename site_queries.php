@@ -26,16 +26,21 @@
 			 	if (!empty($search_by_category)) {
       			
       			     echo "<h1>Results: </h1>";
-      				 $result   = mysql_query("select * from Sites where category='$search_by_category' order by site_url");
+      				 $result   = mysql_query("select * from Sites where category='$search_by_category' order by sum_score / num_reviews DESC");
   					 $rowCheck = mysql_num_rows($result);
   					 if ($rowCheck > 0) {
       				  while ($row = mysql_fetch_array($result)) {
 						$url = $row[site_url];
 						$category = $row[category];
+						$avgScore = "";
+						if ($row[num_reviews] != 0) {
+							$avg = $row[sum_score] / $row[num_reviews];
+							$avgScore = $avg."/5";
+						}
 						echo "<div>
 								<form action='site.php' method='get'>
 								<input type='hidden' name='site_url' value='$url'/>
-								<input type='submit' value='$url  #$category'/>
+								<input type='submit' value='$url $avgScore #$category'/>
 								</form>
 							  </div>";
       					}    
