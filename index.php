@@ -65,11 +65,11 @@
 			
 		</div>
 		<script type="text/javascript">	
-		if (!sessionStorage.popup) {
 			
 			//$(document).unbind('pageshow');
 			
 			$(document).bind('pageshow', function(event){ 
+				if (!sessionStorage.popup) {
 				$("#popupPanel").popup({history: false});
 				
 				$( "#popupPanel" ).on({
@@ -84,11 +84,8 @@
 				});
 				$("#popupPanel").popup("open");
 				sessionStorage.popup = 1;
+				}
 			});
-		} else {
-			$(document).bind('pageshow', function(event) {
-			});
-		}
 		</script> 
 	</div><!-- /content -->
 	<div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
