@@ -123,7 +123,7 @@
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
 					//alert(data + " liked!");
 					$("button#"+review_id).removeClass("like-review-btn").addClass("unlike-review-btn");
-					$("button#"+review_id).html("Unlike");
+					$("button#"+review_id).html("Unlike Review");
 					$("button#"+review_id).button("refresh");
 					$("#review-likes-"+review_id).load("review.php #num_likes", {review_id : review_id});				});
 			});
@@ -134,7 +134,7 @@
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {
 					//alert(data + " unliked!");
 					$("button#"+review_id).removeClass("unlike-review-btn").addClass("like-review-btn");
-					$("button#"+review_id).html("Like");
+					$("button#"+review_id).html("Like Review");
 					$("button#"+review_id).button("refresh");
 					$("#review-likes-"+review_id).load("review.php #num_likes", {review_id : review_id});
 					});
