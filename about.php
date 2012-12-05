@@ -12,8 +12,8 @@
 <body> 
 
 	<div data-role="header">
-		<a href="#" data-icon="back" data-rel="back">Back</a>
 		<?php
+			include("back_button_bar.php");
 			include("top_bar.php");
 		?>
 	</div><!-- /header -->
@@ -24,15 +24,15 @@
 		<p>Have you ever wondered what popular websites other people are using to satisfy their web surfing needs? Chirp is a web app designed to fulfill just that need. Come on in and take a look at what other people are checking out!</p>
 		<h1>1.</h1>
 		<p>Go to the search page and either type in a website you are interested, or search websites by category.</p>
-		<div style="border:1px solid black">
-		<img src="about1.png"></img>
-		</div>
+		
+		<img style="max-width:280px; border:1px solid black" src="about1.png"></img>
+		
 		<h1>2.</h1>
 		<p>'Like' websites</p>
 		<h1>3.</h1>
 		<p>Comment on and rate websites yourself!</p>
 		<div style="border:1px solid black">
-		<img src="about2.png"></img>
+		<img style="max-width:280px" src="about2.png"></img>
 		</div>
 		<h1>4.</h1>
 		<ul>
