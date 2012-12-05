@@ -61,10 +61,15 @@
       				  while ($row = mysql_fetch_array($result)) {
 						$url = $row[site_url];
 						$category = $row[category];
+						$avgScore = "";
+						if ($row[num_reviews] != 0) {
+							$avg = $row[sum_score] / $row[num_reviews];
+							$avgScore = $avg."/5";
+						}
 						echo "<div>
 								<form action='site.php' method='get'>
 								<input type='hidden' name='site_url' value='$url'/>
-								<input type='submit' value='$url  #$category'/>
+								<input type='submit' value='$url $avgScore #$category'/>
 								</form>
 							  </div>";
       					}    
