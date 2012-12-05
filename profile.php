@@ -23,7 +23,7 @@
 	<div data-role="content">
 
 	<div id="profile-area">
-	<h1>My Profile: </h1>
+	<h1 class="smoosh">My Profile: </h1>
 		<?php
 		if(isset($_SESSION['id'])) {
 			$user = $_SESSION['id'];
