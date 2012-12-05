@@ -27,13 +27,13 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div class="site-url">
+		<div class="site-url; center">
 			<?php
 					echo "<a href=".$_GET['site_url']." >";
 					echo $_GET['site_url']."</a><br>";
 			?>
 		</div>
-		<div class="avg-rating">
+		<div class="avg-rating; smoosh">
 			<?php 
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
 				$query = "SELECT distinct num_reviews, sum_score FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id";
@@ -45,7 +45,7 @@
 				}
 			?>
 		</div>
-		<div class="review-count">
+		<div class="review-count; smoosh">
 			<?php
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
 				$query = "SELECT num_reviews FROM Sites where site_url = '$site_url'";
@@ -55,7 +55,7 @@
 				}
 			?>
 		</div>
-		<div class="add-favorite">
+		<div class="add-favorite; smoosh">
 			<?php
 				if(isset($_SESSION['id'])) {
 					$site_url = mysql_real_escape_string($_GET["site_url"]);
@@ -72,6 +72,7 @@
 				}
 			?>
 		</div>
+		<h1 class="center">Reviews</h1>
 		<div class="site-reviews">
 			<?php
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
@@ -85,18 +86,18 @@
 					echo "<div class=site-review >";
 					$rowCheck = mysql_num_rows($r1);
 					if ($rowCheck > 0) {
-					echo "<button class='unlike-review-btn' id=".$row['review_id']." >Unlike</button>";
+					echo "<button class='unlike-review-btn' id=".$row['review_id']." >Unlike Review</button>";
 					} else {
-					echo "<button class='like-review-btn' id=".$row['review_id']." >Like</button>";
+					echo "<button class='like-review-btn' id=".$row['review_id']." >Like Review</button>";
 					}
 					$q2 = "SELECT * FROM Users where email = '".mysql_real_escape_string($row['user_name'])."'";
 					$r2 = mysql_query($q2);
 					$row2 = mysql_fetch_array($r2);
 					echo "<div class=reviewer id=reviewer-".$row['review_id']." >";
 					if ($row2['user_picture'] != NULL) { 
-						echo "<img width=128 height=128 src=profile_pics/".$row2['user_picture']." />";
+						echo "<img width=75 height=75 src=profile_pics/".$row2['user_picture']." />";
 					} else {
-						echo "<img width=128 height=128 src=nophoto.png />";
+						echo "<img width=75 height=75 src=nophoto.png />";
 					}
 					echo "<div class=review-time id=review-time-".$row['review_id']." >".$row["user_name"]."</div>";
 					echo "<div class=review-time id=review-time-".$row['review_id']." >".date($row["date_created"])."</div>";
@@ -108,7 +109,7 @@
 			?>
 		</div>
 		
-	
+		
 		
 			<script>
 			$(".like-review-btn").live("click", function(event) {
@@ -155,7 +156,7 @@
 			});			
 		</script>
 		
-		<h1 class="center">Review this website</h1>
+		<h1 style="border-top:solid" class="center">Review this website</h1>
 		
 		<form action="add_review.php" data-ajax='false' method="post" id="add_review">
 		
@@ -196,7 +197,7 @@
 	              });
 			</script>
 		
-		
+	<div style="border-top:solid"></div>
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
