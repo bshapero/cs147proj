@@ -35,6 +35,7 @@
 		<img style="max-width:280px" src="about2.png"></img>
 		</div>
 		<h1>4.</h1>
+		<p>Now try for yourself! Chirp!</p>
 		<ul>
 			<li><a href="index.php"><img src="browse.gif"></img></a></li>
 			<li><a href="login.php"><img src="login.gif"></img></a></li>

@@ -32,15 +32,16 @@
       				  while ($row = mysql_fetch_array($result)) {
 						$url = $row[site_url];
 						$category = $row[category];
-						$avgScore = "";
+						$avgScore = "Not Reviewed";
 						if ($row[num_reviews] != 0) {
-							$avg = $row[sum_score] / $row[num_reviews];
-							$avgScore = $avg."/5";
+							$avg = round($row[sum_score] / $row[num_reviews], 1);
+							$avgScore = $avg."/5 Stars";
 						}
-						echo "<div>
+						echo "<div style='border-bottom:solid; border-bottom-width:1px'>
+								$avgScore
 								<form action='site.php' method='get'>
 								<input type='hidden' name='site_url' value='$url'/>
-								<input type='submit' value='$url $avgScore #$category'/>
+								<input type='submit' value='$url #$category'/>
 								</form>
 							  </div>";
       					}    
@@ -61,15 +62,17 @@
       				  while ($row = mysql_fetch_array($result)) {
 						$url = $row[site_url];
 						$category = $row[category];
-						$avgScore = "";
+						$avgScore = "Not Reviewed";
 						if ($row[num_reviews] != 0) {
-							$avg = $row[sum_score] / $row[num_reviews];
-							$avgScore = $avg."/5";
+							$avg = round($row[sum_score] / $row[num_reviews], 1);
+							$avgScore = $avg."/5 Stars";
 						}
-						echo "<div>
+						echo "
+							<div style='border-bottom:solid; border-bottom-width:1px'>
+								$avgScore
 								<form action='site.php' method='get'>
 								<input type='hidden' name='site_url' value='$url'/>
-								<input type='submit' value='$url $avgScore #$category'/>
+								<input type='submit' value='$url #$category'/>
 								</form>
 							  </div>";
       					}    
