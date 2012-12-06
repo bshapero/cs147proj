@@ -27,13 +27,13 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div class="site-url; center">
+		<div class="site-url center">
 			<?php
 					echo "<a href=".$_GET['site_url']." >";
 					echo $_GET['site_url']."</a><br>";
 			?>
 		</div>
-		<div class="avg-rating; smoosh">
+		<div class="avg-rating smoosh">
 			<?php 
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
 				$query = "SELECT distinct num_reviews, sum_score FROM Sites, Reviews where Sites.site_url = '$site_url' AND Reviews.site_id = Sites.site_id";
@@ -45,7 +45,7 @@
 				}
 			?>
 		</div>
-		<div class="review-count; smoosh">
+		<div class="review-count smoosh">
 			<?php
 				$site_url = mysql_real_escape_string($_GET["site_url"]);
 				$query = "SELECT num_reviews FROM Sites where site_url = '$site_url'";
@@ -55,7 +55,7 @@
 				}
 			?>
 		</div>
-		<div class="add-favorite; smoosh">
+		<div class="add-favorite smoosh">
 			<?php
 				if(isset($_SESSION['id'])) {
 					$site_url = mysql_real_escape_string($_GET["site_url"]);
@@ -65,7 +65,7 @@
 					$rowCheck = mysql_num_rows($result);
 					if ($rowCheck > 0) {
 						$row = mysql_fetch_array($result);
-						echo "Favorited";
+						echo "<div class=center ><b>Favorited</b></div>";
 					} else {
 						echo "<button class='add-favorite-btn' >Add To My Favorites</button>";
 					}
