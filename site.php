@@ -114,6 +114,7 @@
 			<script>
 			$(".like-review-btn").live("click", function(event) {
 				event.preventDefault();
+				event.stopPropagation();
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
 				if (!email) {
@@ -129,6 +130,7 @@
 			});
 			$(".unlike-review-btn").live("click", function(event) {
 				event.preventDefault();
+				event.stopPropagation();
 				var review_id = this.id;
 				var email = '<?php echo $_SESSION["id"]; ?>';	
 				$.post("like_review.php", { email : email, review_id : review_id }, function(data) {

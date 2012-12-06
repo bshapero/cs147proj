@@ -78,7 +78,7 @@
 	<script>
 	$(".edit_profile").click(function(event) {
 		event.preventDefault();
-		//event.stopPropagation();
+		event.stopPropagation();
 		var email = '<?php echo $_SESSION["id"]; ?>';
 		$("#profile-area").load("edit_profile.php?", { old_email:email });
 	});
