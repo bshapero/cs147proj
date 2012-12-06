@@ -37,8 +37,8 @@
 							$avg = round($row[sum_score] / $row[num_reviews], 1);
 							$avgScore = $avg."/5 Stars";
 						}
-						echo "<div style='border-bottom:solid; border-bottom-width:1px'>
-								$avgScore
+						echo "<div style='border-top:solid; border-top-width:1px'>
+								<div style='color:purple'>$avgScore</div>
 								<form action='site.php' method='get'>
 								<input type='hidden' name='site_url' value='$url'/>
 								<input type='submit' value='$url #$category'/>
