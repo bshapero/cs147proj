@@ -40,7 +40,7 @@
 				$result = mysql_query($query);
 				$rowCheck = mysql_num_rows($result);
 				while ($row = mysql_fetch_array($result)) {
-					$avg = $row["sum_score"] / $row["num_reviews"];
+					$avg = round($row["sum_score"] / $row["num_reviews"], 1);
 					echo "<p>Average Rating: ".$avg."/5 </p>";
 				}
 			?>
