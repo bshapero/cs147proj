@@ -6,7 +6,9 @@ text-align: center;
 .smoosh {
     line-height:15%
 }
-
+.star {
+	color:orange;
+}
 a {
     text-decoration: none;
 }
